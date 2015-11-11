@@ -1,0 +1,13 @@
+= javascript_include_tag "//www.google.com/jsapi", "chartkick"
+-#=Time.zone.name
+
+= line_chart Deployment.group_by_week(:created_at, 'Etc/GMT').count, height: '300px', library: {hAxis: {title: "Time (weekly)"}, vAxis: {title: "# of Deployments"}}
+
+- arel = Deployment.includes(:user)
+= bar_chart arel.group('users.username').count, height: '1000px', library: {hAxis: {title: "# of deployments"}, vAxis: {title: "User"}}
+
+- arel = Deployment.includes(:project)
+= bar_chart arel.group('projects.name').count, height: '600px', library: {hAxis: {title: "# of deployments"}, vAxis: {title: "Project"}}
+
+-arel = Deployment.includes(:environment)
+= bar_chart arel.group('environments.name').count, height: '600px', library: {hAxis: {title: "# of deployments"}, vAxis: {title: "Environment"}}

@@ -1,0 +1,39 @@
+!!! 5
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %meta{name: "description", content: ""}
+    %meta{name: "author", content: ""}
+    /[if lt IE]
+      %script{src: "https://html5shim.googlecode.com/svn/trunk/html5.js"}  
+    %title qdeploy
+    %link{rel: "shortcut icon", href: "/favicon.ico"}
+    = stylesheet_link_tag "application", :media => "all"
+    = csrf_meta_tags
+    =yield(:head)
+  %body{:class => body_classes}
+    = render 'common/top_nav'
+    .container-fluid
+      .row-fluid
+        .span2
+          = render 'common/sidebar'
+        .span7
+          = yield
+        .span3
+          = render 'public_activity/feed'
+    = javascript_include_tag "application"
+    -if Rails.env.test?
+      :javascript
+        $(document).ready(function(){
+          $.ajaxSetup({async: false});
+        });
+    = yield(:script)
+    -#-if params[:view] == "global"
+    -#  = render 'tokens/global'
+    -#-elsif params[:view]  == "global_env"
+    -#  = render 'tokens/global_env'
+    -#-elsif params[:view]  == "project"
+    -#  = render 'tokens/proj'
+    -#-elsif params[:view]  == "service"
+    -#  = render 'tokens/service'

@@ -1,0 +1,41 @@
+- if @failed
+  = @msg.html_safe
+
+= render 'bulkrefresh'
+
+<p><br><br>
+<b> 
+= @bulk_type
+Refresh Status</b>
+%table.table.table-striped.table-condensed
+  %colgroup
+    .col.span1
+    .col.span1
+  %caption
+    %strong
+      = @environment.name
+  %thead
+    %th Project
+    %th Release
+    %th User
+    %th Deploy Date (PST)
+    %th Logs
+    - @latest.sort.each do |p,d|
+      - Rails.logger.info "p is #{p}"
+      - Rails.logger.info "services are #{@bulk_services}"
+      - next if !(@bulk_services.include?(p))
+      %tr
+        %td
+          = p
+        %td
+          = d.name.gsub(/\.zip$/,'')
+        %td
+          = d.username
+        %td
+          = d.started_at
+        %td
+          - if d.log_path
+            = link_to "View logs", logs_deployment_path(d.id)
+
+.linkto-container
+.linkto-container2

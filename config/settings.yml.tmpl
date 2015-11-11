@@ -1,0 +1,45 @@
+DEFAULTS: &DEFAULTS
+  admins: [pbindels, shu, justin, yilmaz, rkarthikeyan, sanantharaman, rschroder, dnguyen, bevans,
+           jelliot, bnugmanov, jthorpe, bramadass, kblount, gam, trivera, pestrada, mbianco, admin]
+  locked_projects: [king, nexus_reloaded, partner_portal]
+  blocked_envs: [int06, int15]
+  max_display: 50
+
+development:
+  <<: *DEFAULTS
+  notification_lists:
+    prod1: [pbindels@onekingslane.com,
+            paul@spoontail.com]
+    non-prod1: [pbindels@onekingslane.com]
+    imp: [paul@spoontail.com]
+  qdeploy_hosts:
+    prod1: sac-prod1-rel-deploy-01
+    non-prod1: 'OKL4301-PBINDELS'
+  nr_api_keys:
+    prod1: dc137f80bc0acbf21de4bf84bf0e4c78a0ae61acd443161
+    non-prod1: d4aa93b75fda0e9196caf8ba4477ca9458dd6f060eae414
+  hb_api_keys:
+    prod1: b1063e69
+    non-prod1: b1063e69
+  rails_root: "/Volumes/Work/dev/qdeploy/rails"
+  tmp_root: "/tmp/qdeploy"
+  dbrefresh_root: "/tmp/qdeploy"
+
+production:
+  <<: *DEFAULTS
+  notification_lists:
+    prod1: [ qa-team@onekingslane-1.flowdock.com, techops@onekingslane-1.flowdock.com,
+             deployments@onekingslane-1.flowdock.com, release@onekingslane-1.flowdock.com]
+    non-prod1: [qa-team@onekingslane-1.flowdock.com]
+    imp: [impteam@onekingslane-1.flowdock.com]
+  qdeploy_hosts:
+    prod1: sac-prod1-rel-deploy-01
+    non-prod1: sac-eng-deploy-web-01
+  nr_api_keys:
+    prod1: dc137f80bc0acbf21de4bf84bf0e4c78a0ae61acd443161
+    non-prod1: d4aa93b75fda0e9196caf8ba4477ca9458dd6f060eae414
+  hb_api_keys:
+    prod1: 6ffa678c
+    non-prod1: a4e56f42 
+  tmp_root: "__RAILS_ROOT__/shared/tmp/qdeploy"
+  dbrefresh_root: "/okl/king/qdeploy"

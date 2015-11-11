@@ -1,0 +1,2 @@
+class GlobalToken < Token
+end

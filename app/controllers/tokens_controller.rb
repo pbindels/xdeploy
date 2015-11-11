@@ -1,0 +1,231 @@
+class TokensController < ApplicationController
+  before_action :set_token, only: [:show, :edit, :update, :destroy]
+
+  # GET /tokens
+  def index
+    params[:env_sel]                   = flash[:env_sel] if params[:env_sel].nil?
+    params[:env_sel]                   = ["qe01"] if params[:env_sel].nil?
+    params[:view]                      = flash[:view] if params[:view].nil?
+    params[:project]                   = flash[:project]  if params[:project].nil?
+    params[:service]                   = flash[:service]  if params[:service].nil?
+    params[:sub_project]               = flash[:sub_project] if params[:sub_project].nil?
+    params[:sub_project].nil? ? proj   = "" : proj = params[:sub_project].split(" - ")[0]
+    params[:sub_project].nil? ? svc    = "" : svc = params[:sub_project].split(" - ")[1]
+
+    #@selected_envs                     = params[:env_sel]
+    @view_name                         = params[:view]
+    @global_tokens                     = Token.global.order("LOWER(name) asc")
+    @project                           = Project.where("name = ?", proj)
+    @service                           = Service.where("name = ?", svc)
+
+    @service_count                     = Service.count('project_id', :conditions => "project_id = #{@project.first.id}" ) if @project.first
+
+    @service_name                      = svc
+    @project_name                      = proj
+    @all_sub_projects                  = get_sub_projects
+    @all_tokens, @flat_props           = get_all_tokens
+    @keys = @flat_props.keys
+  end
+
+  # GET /tokens/1
+  def show
+    @token = Token.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @token }
+    end
+
+  end
+
+  def get_sub_projects
+    sub_projects = Array.new
+    Project.all.sort{|a,b| a.name <=> b.name}.each do |project|
+        project.services.sort{|a,b| a.name <=> b.name}.each do | service|
+          sub_projects.push("#{project.name} - #{service.name}")
+        end
+    end
+    return sub_projects
+  end
+
+  def get_all_tokens
+    t0 = Time.now
+    all_props   = Hash.new
+    global      = Hash.new
+    flat_props  = Hash.new
+    allenvs     = Environment.all
+    envs        = allenvs.map{ |c| c.name}.sort
+
+    # get globals
+    @global_tokens.each do | token |
+      global[token.name] = token.value.to_s  + " " + token.id.to_s
+      global[token.name] = token
+    end
+
+    # set globals and topenv
+    envs.each do | e |
+      next if ( (! params[:env_sel].include?("All")) && (! params[:env_sel].include?(e)))
+      topenv                    = Hash.new
+      proj                      = Hash.new
+      service                   = Hash.new
+      s2e                       = Hash.new
+      all_props[e]              = Hash.new
+      all_props[e]["global"]    = global
+
+      allenvs.each do |ev|
+        next if ev.name != e
+        ev.tokens.each do |token|
+          topenv[token.name] = token
+        end
+      end
+      all_props[e]["topenv"] = topenv
+
+      @project.each do |project|
+        project.tokens.each do | token |
+          proj[token.name] = token.value.to_s  + " " +  token.id.to_s
+          proj[token.name] = token
+        end
+
+
+        project.services.each do | svc |
+          next if svc.name != @service_name
+          svc.tokens.each do | token |
+            if @service_name == svc.name
+              service[token.name] = token.value.to_s  + " " + token.id.to_s
+              service[token.name] = token
+            end
+          end
+          alls2es = ServiceToEnvironment.where(service_id: svc.id)
+          allenvs.each do |ev|
+            alls2es.each do |svc_env|
+              next if not svc_env.environment.name == e
+              svc_env.tokens.each do | token|
+                if @service_name == svc.name
+                  s2e[token.name]  = token.value.to_s + " " + token.id.to_s
+                  s2e[token.name]  = token
+                end
+              end
+            end
+          end
+        end
+      end
+      all_props[e]["proj"] = proj
+      all_props[e]["service"] = service
+      all_props[e]["s2e"] = s2e
+    end
+
+    all_props.each do | enviro, typehash |
+      typehash.each do | name, kv |
+        kv.each do | k, v |
+          flat_props[k] = v
+        end
+      end
+    end
+
+    return all_props, flat_props
+
+  end
+
+  # GET /tokens/new
+  def new
+    @token = Token.new(token_params)
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+
+  # GET /tokens/1/edit
+  def edit
+  end
+
+  # POST /tokens
+  def create
+    @token =  Token.new(token_params)
+
+    flash[:project] = params[:project]
+    flash[:service] = params[:service]
+    flash[:sub_project] = params[:sub_project]
+    flash[:view] = params[:view]
+    flash[:env_sel] = params[:env_sel].split
+
+    respond_to do |format|
+      if @token.save
+        
+        @token.create_activity key: 'token.create', owner: current_user
+        format.html{ redirect_to tokens_path, notice: 'Token was successfully created.' }
+        format.js
+      else
+        format.html{ render action: 'new' }
+        format.js
+      end
+    end
+  end
+
+  # PATCH/PUT /tokens/1
+  def update
+    params[:view] = "global"
+    tok = Token.find(params[:id])
+    Rails.logger.info "#{@current_user.username} updating token #{tok.name} (Token ID: #{params[:id]}) -- from: #{tok.value} to: #{params[:value]}"
+    respond_to do |format|
+      if @token.update(token_params)
+        @token.create_activity key: 'token.update', owner: current_user
+        #format.html{ redirect_to @token, notice: 'Token was successfully updated.' }
+        format.html{ redirect_to tokens_path, notice: 'Token was successfully updated.' }
+        format.json{ render json:  @token.value.to_json }
+      else
+        format.html{ render action: 'edit' }
+        format.json { render json: @token.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /tokens/1
+  def destroy
+    global_token = Token.global.where("id = ?", "#{params[:id]}").first
+
+    if ! global_token.nil? && params[:kill_token]
+      all_tokens = Token.where(name: global_token.name)
+      Rails.logger.info ("Destroying all #{global_token.name} tokens!!")
+      all_tokens.each do | tok|
+        Rails.logger.info "Deleting #{tok.name} - #{tok.value}"
+        tok.destroy
+      end
+    end
+
+    @token.tokenable_type.nil? ? level = "Global" : level = @token.tokenable_type
+    Rails.logger.info("\n#{@current_user.username} Deleting token...Name: #{@token.name}, Value: #{@token.value}, Level: #{level}")
+    if  @token.tokenable_type.nil?
+      Rails.logger.info("Token Environment: Global")
+    else
+      #s2e = ServiceToEnvironment.where(environment_id: @token.tokenable_id).first
+      #s2e = ServiceToEnvironment.where(id: @token.tokenable_id).first
+      #env= Environment.where(id: s2e.environment_id).first
+      #Rails.logger.info("Token Environment: #{env.name}") if @token.tokenable_type =~ /Environment/
+    end
+
+    @token.destroy
+    redirect_to tokens_url(flash[:params])
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_token
+      @token = Token.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def token_params
+      if params[:token]
+        if params[:token][:tokenable_type].blank? && params[:id].blank?
+          params[:token][:tokenable_type] = nil
+        end
+        params.require(:token).permit(:name, :value, :tokenable_type, :tokenable_id)
+      else
+        {}
+      end
+      
+    end
+    
+end

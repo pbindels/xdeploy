@@ -1,0 +1,9 @@
+= simple_form_for(@environment, :html => {:class => "form-horizontal"}) do |f|
+  = f.error_notification
+
+  = f.input :name
+  = f.input :code
+  = f.input :env_id
+  .form-actions
+    = f.button :submit, :class => "btn-primary"
+    = link_to "or cancel and go back", environments_path

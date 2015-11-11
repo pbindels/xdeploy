@@ -1,0 +1,42 @@
+- if @deployment.prepare_file?
+  %table.table.table-condensed.table-bordered
+    %thead
+      %th Prepare phase status
+      %th View Prepare Log file
+    %tbody
+      %tr
+        - if File.exists?("#{@deployment.log_path}/prepare")
+          - if `grep PREPARED #{@deployment.log_path}/prepare` =~ /RELEASE HAS BEEN PREPARED/
+            %th{:bgcolor => "green"}
+              Complete!
+          - else
+            %th{:bgcolor => "red"}
+              In progress...
+        %td
+          =link_to "prepare", log_deployment_path(@deployment, log_file: 'prepare'), remote: true
+
+  %i.b Refresh page to update log status.  <br>
+
+  - if @qdeploy_statuses
+    %table.table.table-condensed.table-bordered
+      %thead
+        %th Host
+        %th Script
+        %th Stage
+        %th Progress
+        %th Status
+      %tbody
+        - @qdeploy_statuses.each do |status|
+          %tr
+            %td=status[:host]
+            %td=status[:script]
+            %td=status[:stage]
+            %td= link_to status[:progress], log_deployment_path(@deployment, log_file: "#{status[:host]}:#{status[:script]}:#{status[:stage]}"), remote: true
+            %td=status[:status]
+- else
+  %h3 No Logs yet :(
+#log-modal.modal.hide
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3 Log File
+  .modal-body

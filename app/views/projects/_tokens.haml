@@ -1,0 +1,9 @@
+%table.table.table-striped.table-hover
+  %thead
+    %th Name
+    %th Value
+  %tbody
+    - @project.tokens.order("name asc").each do |token|
+      %tr
+        %td= link_to token.name, token_path(token)
+        %td= token.value

@@ -1,0 +1,15 @@
+- if @token
+  != "$('#project-tokens .token-column').html('#{j render(:partial => 'token_form', locals:{ token: @token })}')"
+  != "$('#service-tokens .token-column, #environment-tokens .token-column, #token .token_column').html('')"
+- if @project_tokens
+  != "$('#project-tokens .token-column').html('#{j render('project_tokens')}')"
+  != "$('#service-tokens .token-column, #environment-tokens .token-column, #token .token-column').html('')"
+- if @service_tokens
+  != "$('#service-tokens .token-column').html('#{j render('service_tokens')}')"
+  != "$('#environment-tokens .token-column, #token .token_column, #token .token-column').html('')"
+- if @service_environment_tokens
+  != "$('#environment-tokens .token-column, #token .token_column').html('#{j render('environment_tokens')}')"
+  != "$('#token .token-column').html('')"
+- if @service_token
+  != "$('#token .token-column').html('#{j render(:partial => 'token_form', locals:{token: @service_token} )}')"
+!= "Token.set_bindings();"

@@ -1,0 +1,49 @@
+-#%link rel="stylesheet" href="dist/ladda-themeless.min.css">
+-#%script src="dist/spin.min.js"></script>
+-#%script src="dist/ladda.min.js"></script>
+- if params[:env_sel].nil?
+  - params[:env_sel] = ["qe01"]
+
+= form_tag(tokens_path, method: "get") do
+
+  %table
+    %th
+      %strong View: &nbsp&nbsp&nbsp
+      %td
+        %label.global_view
+          = radio_button_tag(:view,"global" , params[:view] != "service" ? true : false)
+          &nbsp<b>global</b> &nbsp
+
+        -# = radio_button_tag(:view,"project" , params[:view] == "service" ? true : false )
+        -#&nbsp<b>project</b> &nbsp
+      %td
+        %label.service_view
+          = radio_button_tag(:view,"service" , params[:view] == "service" ? true : false )
+          &nbsp<b>application</b> &nbsp
+  <br>
+
+  .project
+    %strong Project: &nbsp &nbsp
+    -#= select_tag(:sub_project, options_for_select(@all_sub_projects, params[:sub_project]), { :class => "text_box_label901"})
+    = select_tag(:sub_project, options_for_select(@all_sub_projects, params[:sub_project]), { :class => "form-control"})
+
+  - projs = Hash.new
+  - Project.all.each do |a|
+    - svcs = Service.where(project_id: a.id)
+    - projs[a.code] = svcs.map{|s| s.code}
+
+  %br
+
+  %strong Environments: &nbsp
+  = select_tag(:env_sel, options_for_select(envs, params[:env_sel]), {:class => "form-control",:multiple => true})
+  &nbsp&nbsp
+
+  -#= submit_tag("View Tokens", { :class=>"btn btn-primary ladda-button", "data-style" => "expand-left" })
+  = button_tag("View Tokens", { :class=>"btn-primary has-spinner", "data-style" => "expand-left"} ) do
+    %span{:class => "spinner"}
+      %i.icon-spin.icon-refresh
+    View Tokens
+
+  <br><br>
+
+

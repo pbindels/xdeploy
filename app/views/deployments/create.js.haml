@@ -1,0 +1,9 @@
+!= "$('#deployment-modal').dialog2('close');"
+
+-if @failed
+  != "$.notification( { title: 'Deployment Locked!!', content: '#{@msg}  #{link_to "View #{@project.name} Deployments", project_deployments_path(@project.id)}', icon: 'N' });"
+-elsif  @multi
+  != "$.notification( { title: 'Deployments Started', content: '#{link_to "View #{@project.name} Deployments", project_deployments_path(@project.id)}', icon: 'N' });"
+-else
+  != "$.notification( { title: 'Deployment Started', content: '#{link_to 'View Deployment Logs', logs_deployment_path(@deployment)}', icon: 'N' });"
+

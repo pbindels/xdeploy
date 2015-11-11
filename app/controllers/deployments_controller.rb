@@ -1,0 +1,414 @@
+class DeploymentsController < ApplicationController
+  require 'fileutils'
+  before_action :set_project, only: [:index, :create]
+
+  def index
+    prod1_env_id = (Environment.find_by name: 'prod1').id
+    @qdeploy_host == @qdeploy_hosts['prod1'] ? qry = "\`environment_id\` =  #{prod1_env_id}"
+                                             : qry = "\`environment_id\` !=  #{prod1_env_id}"
+
+    @deployments = @project.deployments.paginate :per_page => @max_display, :page => params[:page],
+                                                 :conditions => qry,
+                                                 :order => 'started_at DESC'
+  end
+
+  def get_status
+    if params["action"] =~ /refresh/
+      @environment = Environment.find_by_id(params[:refresh][:environment])
+    else
+      @environment = Environment.find_by_name(params[:environment])
+    end
+
+    @projects    = Project.all
+    @services    = Service.all
+    params[:env_sel] = @environment
+    @latest= Hash.new
+    #@projects.each do |p|
+    @services.each do |p|
+      @deps = Deployment.find_by_sql("select users.username, artifacts.name, deployments.started_at, deployments.log_path, deployments.id from artifacts
+                                   join deployments on deployments.artifact_id = artifacts.id
+                                   join environments on environments.id = deployments.environment_id
+                                   join services on services.id = deployments.service_id
+                                   join users on users.id = deployments.user_id
+                                   where services.code = '#{p.code}' and environments.name = '#{@environment.name}'
+                                   order by deployments.started_at DESC LIMIT 1")
+
+      @deps.each do |d|
+        Rails.logger.info "d is #{d}"
+        @latest[p.code] = d
+      end
+    end
+  end
+
+  def get_refresh
+    Rails.logger.info "IN GET REFRESH"
+    Rails.logger.info "params are #{params}"
+    Rails.logger.info "logfile is #{params[:log_file]}"
+  end
+
+  def get_project_env_status
+
+    #status_params = params["project_env_status"]
+    #status_params[:project] = "King" if status_params[:project].nil?
+    #@project = Project.find(status_params[:project])
+    @project = Project.find_by_name(params[:project])
+    @service = Service.find_by_name(params[:service])
+    @environments = Environment.all
+    @latest= Hash.new
+    @environments.each do |e|
+      @deps = Deployment.find_by_sql("select users.username, artifacts.name, deployments.started_at, deployments.log_path, deployments.id from artifacts
+                                   join deployments on deployments.artifact_id = artifacts.id
+                                   join environments on environments.id = deployments.environment_id
+                                   join services on services.id = deployments.service_id
+                                   join users on users.id = deployments.user_id
+                                   where services.code = '#{@service.code}' and environments.name = '#{e.name}'
+                                   order by deployments.started_at DESC LIMIT 1")
+      @deps.each do |d|
+        @latest[e.code] = d
+      end
+    end
+  end
+
+  def run_bulkrefresh
+    refresh_params = params[:refresh]
+    env = params[:environment_id]
+    @king_services=%w(king)
+    #@king_services=%w(king api_server searchpro mobilerouter wordpress)
+    @soa_services=%w(payment_service site_configuration_service account_service product_service site_merchandising_service cart_service cerberus_service)
+    @bulk_services=%w(payment_service cerberus_service)
+    @bulk_type = refresh_params[:bulk_type]
+    @bulk_type == "SOA" ?  @bulk_services = @soa_services : @bulk_services = @king_services + @soa_services
+
+    @environment = Environment.find(refresh_params[:environment])
+
+    @bulk_services.each do |svc|
+      @service = Service.find_by_code("#{svc}")
+      @project = Project.find_by_code("#{svc}")
+      if @bulk_type == "Latest King Master"
+        @artifact_id = Artifact.find_by_sql("select id from artifacts where service_id = '#{@service.id}'
+          and name like '%-master_%' order by updated_at desc limit 1")[0].id
+      else
+        @artifact_id = Deployment.find_by_sql("select deployments.artifact_id from deployments
+          join environments on environments.id = deployments.environment_id
+          join services on services.id = deployments.service_id
+          where environments.name = 'prod1'  and services.code = '#{svc}'
+          order by deployments.updated_at desc limit 1")[0].artifact_id
+      end
+      build = Artifact.where("project_id=#{@project.id} AND service_id=#{@service.id}").order(updated_at: :desc)[0].name
+      build = Artifact.where("id=#{@artifact_id}").order(updated_at: :desc)[0].name
+
+      #@artifact = @service.artifacts.find(params[:artifact_id])
+      @artifact = @service.artifacts.find_by name: "#{build}"
+
+      lock_files = ["/okl/#{@project.code}/qdeploy/tmp/#{@project.code}\.#{@environment.name}.lock"]
+      lock_files.push("#{@dbrefresh_root}/tmp/servicectl.#{@project.code}.#{@environment.name}.dbrefresh.sh.lock") if @project.code == "king"
+      locks = Array.new
+      lock_files.each do |lock|
+        locks.push(lock) if File.exists?(lock)
+      end
+
+      if locks.length > 0
+        @msg = "<font color=red> Deployment halted!</font> &nbsp&nbsp The following locks have been found: <font color=red>#{locks.join(",")}</font>.<br>"
+        @failed = true
+      else
+
+        @deployment = Deployment.create!({
+                                             :project_id => @project.id,
+                                             :service_id => @service.id,
+                                             :environment_id => @environment.id,
+                                             :artifact_id => @artifact.id,
+                                             :user_id => current_user.id,
+                                             :web_only => false
+                                         })
+      end
+
+      generate_hosts_file  if @project.code == "hostmgr"  && @environment.name == "prod"
+      #generate_hosts_file  if @environment.name =~ /^(int|qa)/
+
+      DeploymentWorker.perform_async( @deployment.id )
+      @deployment.create_activity key: 'deployment.create', owner: current_user
+
+      nr_api_key =  @environment.name == "prod1" ? @nr_api_keys["prod1"] : @nr_api_keys["non-prod1"]
+      hb_api_key =  @environment.name == "prod1" ? @hb_api_keys["prod1"] : @hb_api_keys["non-prod1"]
+
+      @deployment.performTask("/usr/bin/curl -H \"x-api-key:#{nr_api_key}\"        \
+                            -d \"deployment[app_name]=#{@project.code}-#{@environment.name}\"      \
+                            -d \"deployment[revision]=#{@artifact.name.gsub(/\.zip/,'')}\"         \
+                            https://rpm.newrelic.com/deployments.xml")  if @environment.name == "prod1"
+
+      @deployment.performTask("/usr/bin/curl -H \"x-api-key:#{nr_api_key}\"        \
+                            -d \"deployment[app_name]=#{@project.code}-zend-#{@environment.name}\" \
+                            -d \"deployment[revision]=#{@artifact.name.gsub(/\.zip/,'')}\"         \
+                            https://rpm.newrelic.com/deployments.xml") if @environment.name == "prod1"  && @service.code == "king"
+
+      @deployment.performTask("/usr/bin/curl \"https://api.honeybadger.io/v1/deploys"\
+                            "?deploy\\[environment\\]=production&deploy\\[local_username\\]=#{@current_user.username}"\
+                            "&deploy\\[revision\\]=#{@artifact.name.gsub(/\.zip/,'')}&api_key=#{hb_api_key}\"")  if @environment.name == "prod1"  && @service.code == "king"
+
+      @deployment.performTask("/usr/bin/curl \"https://api.honeybadger.io/v1/deploys"\
+                            "?deploy\\[environment\\]=#{@environment.name}&deploy\\[local_username\\]=#{@current_user.username}"\
+                            "&deploy\\[revision\\]=#{@artifact.name.gsub(/\.zip/,'')}&api_key=#{hb_api_key}\"")  if @environment.name != "prod1"  && @service.code == "king"
+    end
+    get_status
+  end
+
+  def run_soarefresh
+    refresh_params = params[:refresh]
+    env = params[:environment_id]
+
+    @soa_services=%w(payment_service site_configuration_service account_service product_service site_merchandising_service cart_service cerberus_service)
+    @environment = Environment.find(refresh_params[:environment])
+
+    locks = Array.new
+    @soa_services.each do |svc|
+      @service = Service.find_by_code("#{svc}")
+      @project = Project.find_by_code("#{svc}")
+      lock_files = ["/okl/#{@project.code}/qdeploy/tmp/#{@project.code}\.#{@environment.name}.lock"]
+      lock_files.each do |lock|
+        locks.push(lock) if File.exists?(lock)
+      end
+    end
+
+    if locks.length > 0
+      @msg = "<font color=red> Deployment halted!</font> &nbsp&nbsp The following locks have been found: <font color=red>#{locks.join(",")}</font>.<br>"
+      @failed = true
+    else
+
+      @soa_services.each do |svc|
+        @service = Service.find_by_code("#{svc}")
+        @project = Project.find_by_code("#{svc}")
+
+        #build=`ls -lrt /okl/build/artifacts/#{svc}/#{svc}-master*|tail -1|awk -F" " '{print $9}'|cut -d"/" -f6`
+        #build.chomp!
+        build = Artifact.where("project_id=#{@project.id} AND service_id=#{@service.id} AND name like \'%-master_%\'").order(updated_at: :desc)[0].name
+
+        @artifact = @service.artifacts.find_by name: "#{build}"
+
+        @deployment = Deployment.create!({
+                                           :project_id => @project.id,
+                                           :service_id => @service.id,
+                                           :environment_id => @environment.id,
+                                           :artifact_id => @artifact.id,
+                                           :user_id => current_user.id,
+                                           #          :web_only => params[:web_only]
+                                           :web_only => false
+                                         })
+
+        #UserMailer.status_email("pbindels@onekingslane.com", @current_user.username, "@host", "Started",
+        #                        @project.code, @environment.name, @artifact).deliver
+
+        DeploymentWorker.perform_async( @deployment.id )
+      end
+    end
+
+    get_status
+
+  end
+
+  def run_dbrefresh
+
+    refresh_params = params["dbrefresh"]
+    refresh_params[:environment] = "int03" if refresh_params[:environment].nil?
+    @environment = Environment.find(refresh_params[:environment])
+
+    lock_files = ["/tmp/king/qdeploy/tmp/king\.#{@environment.name}.lock"]
+    #lock_files.push("#{@dbrefresh_root}/tmp/servicectl.#{@project.code}.#{@environment.name}.dbrefresh.sh.lock") if @project.code == "king"
+    locks = Array.new
+    lock_files.each do |lock|
+      locks.push(lock) if File.exists?(lock)
+    end
+
+    if locks.length > 0
+      @msg = "<font color=red><h2>Db Refresh halted!</font></h2></font>  <b>The following lock(s) have been found: <br><br> &nbsp&nbsp&nbsp  #{locks.join(",")}<br><br>"
+      @msg += "Please retry once the current deploy or db refresh is complete for environment #{@environment.name}.</b><br> "
+      @failed = true
+    else
+
+    @environment.name != "int05" ? cmd = "/home/shu/Shared/daily_refresh.sh #{@environment.name}"
+                                 : cmd = "/home/shu/Shared/weekly_dbrefresh_int05.sh"
+    #cmd = "sleep 20"
+
+    begin
+      @ret_val = Process.spawn(cmd)
+      Process.detach(@ret_val)
+    rescue  Exception => e
+      @ret_val = "Caught exception: #{e.message}"
+    end
+
+    @process = `ps -aef | grep -v grep | grep '#{cmd}' | grep '#{@ret_val}'`
+    @process = "Process not running!"  if @process == ""
+
+    @tee_file = 'ps-aef | dbrefresh'
+    end
+
+  end
+
+  def multi
+    Rails.logger.info "In MULTI"
+  end
+
+  def new
+    if !params[:project_id].blank?
+      @project = Project.find(params[:project_id])
+    else
+      @projects = Project.all
+    end
+    if !params[:service_id].blank?
+      @service = @project.services.find(params[:service_id])
+      @artifacts = Artifact.where(:project_id => @project.id, :service_id => @service.id).order(:created_at => :desc)
+      @environments = @service.environments
+    end
+
+    if !params[:environment_id].blank?
+      @environment = @service.environments.find(params[:environment_id])
+      #@artifacts = Artifact.where(:project_id => @project.id, :service_id => @service.id).order(:created_at => :desc)
+      #@environments = @service.environments
+    end
+
+    if !params[:artifact_id].blank?
+      #@environment = @service.environments.find(params[:environment_id])
+      #@environment = @service.environments.find(params[:sel_envs][0])
+      @artifact = @service.artifacts.find(params[:artifact_id])
+    end
+
+    respond_to do |format|
+      format.js
+      format.html{ render :layout => false }
+    end
+  end
+  
+  def create
+    params[:environment_id] ? envs = params[:environment_id].split : envs = params[:env_names].split
+    envs.length > 1 ? @multi = true : @multi = false
+    params[:web_only] ? @hostfile = "web_hosts_only" : @hostfile = "hosts"
+    (!params[:service_id].blank?)  ? (@service = Service.find(params[:service_id])) :  (@service = Service.find_by code: params[:service_code])
+    (!params[:artifact_id].blank?) ? (@artifact = @service.artifacts.find(params[:artifact_id])) : (@artifact = @service.artifacts.find_by name: params[:artifact_name])
+
+    envs.each do |e|
+      if params[:environment_id]
+        @environment = @service.environments.find(e)
+      elsif params[:env_names]
+        @environment = @service.environments.find_by name: e
+      end
+
+      lock_files = ["/okl/#{@project.code}/qdeploy/tmp/#{@project.code}\.#{@environment.name}.lock"]
+      lock_files.push("#{@dbrefresh_root}/tmp/servicectl.#{@project.code}.#{@environment.name}.dbrefresh.sh.lock") if @project.code == "king"
+      locks = Array.new
+      lock_files.each do |lock|
+        locks.push(lock) if File.exists?(lock)
+      end
+
+      if locks.length > 0
+        @msg = "<font color=red> Deployment halted!</font> &nbsp&nbsp The following locks have been found: <font color=red>#{locks.join(",")}</font>.<br>"
+        @failed = true
+      else
+
+        @deployment = Deployment.create!({
+          :project_id => @project.id,
+          :service_id => @service.id,
+          :environment_id => @environment.id,
+          :artifact_id => @artifact.id,
+          :user_id => current_user.id,
+          :web_only => params[:web_only]
+        })
+
+        UserMailer.status_email("pbindels@onekingslane.com", @current_user.username, "@host", "Started",
+                            @project.code, @environment.name, @artifact).deliver
+
+
+        generate_hosts_file  if @project.code == "hostmgr"  && @environment.name == "prod"
+        #generate_hosts_file  if @environment.name =~ /^(int|qa)/
+
+        #perform_task(stop_icinga)
+
+        DeploymentWorker.perform_async( @deployment.id )
+        @deployment.create_activity key: 'deployment.create', owner: current_user
+
+        #perform_task(start_icinga)
+
+        nr_api_key =  @environment.name == "prod1" ? @nr_api_keys["prod1"] : @nr_api_keys["non-prod1"]
+        hb_api_key =  @environment.name == "prod1" ? @hb_api_keys["prod1"] : @hb_api_keys["non-prod1"]
+
+        @deployment.performTask("/usr/bin/curl -H \"x-api-key:#{nr_api_key}\"        \
+                              -d \"deployment[app_name]=#{@project.code}-#{@environment.name}\"      \
+                              -d \"deployment[revision]=#{@artifact.name.gsub(/\.zip/,'')}\"         \
+                              https://rpm.newrelic.com/deployments.xml")  if @environment.name == "prod1"
+
+        @deployment.performTask("/usr/bin/curl -H \"x-api-key:#{nr_api_key}\"        \
+                              -d \"deployment[app_name]=#{@project.code}-zend-#{@environment.name}\" \
+                              -d \"deployment[revision]=#{@artifact.name.gsub(/\.zip/,'')}\"         \
+                              https://rpm.newrelic.com/deployments.xml") if @environment.name == "prod1"  && @service.code == "king"
+
+        @deployment.performTask("/usr/bin/curl \"https://api.honeybadger.io/v1/deploys"\
+                              "?deploy\\[environment\\]=production&deploy\\[local_username\\]=#{@current_user.username}"\
+                              "&deploy\\[revision\\]=#{@artifact.name.gsub(/\.zip/,'')}&api_key=#{hb_api_key}\"")  if @environment.name == "prod1"  && @service.code == "king"
+
+        @deployment.performTask("/usr/bin/curl \"https://api.honeybadger.io/v1/deploys"\
+                              "?deploy\\[environment\\]=#{@environment.name}&deploy\\[local_username\\]=#{@current_user.username}"\
+                              "&deploy\\[revision\\]=#{@artifact.name.gsub(/\.zip/,'')}&api_key=#{hb_api_key}\"")  if @environment.name != "prod1"  && @service.code == "king"
+
+        #UserMailer.status_email("pbindels@onekingslane.com", @current_user.username,
+        #                      "@host", "Completed", @project.code, @environment.name, @artifact).deliver
+      end
+    end
+    @project = Project.find(@project.id)
+  end
+
+  def tokens
+    @deployment = Deployment.find(params[:id])
+    render text: @deployment.properties, status: :success
+  end
+  
+  def logs
+    @deployment = Deployment.find(params[:id])
+    @project_id = @deployment.project_id
+    @project = Project.find(@project_id)
+    if @deployment.status_file?
+      @qdeploy_statuses = @deployment.qdeploy_statuses
+    end
+  end
+  
+  def log
+    @deployment = Deployment.find(params[:id])
+    @log = File.readlines(File.join(@deployment.log_path, params[:log_file])).join("\n")
+  end
+  
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_project
+  #    @project = Project.find(params[:project_id])
+    if params[:project_id]
+      @project = Project.find(params[:project_id])
+    elsif params[:project_code]
+      @project = Project.find_by code: params[:project_code]
+    end
+    end
+
+  private
+    def generate_hosts_file
+      Dir.chdir(@tmp_root)
+      FileUtils.rm_rf("deployconf")
+      `git clone git@github.com:/okl/deployconf`
+
+      if Dir.exists?("deployconf/hosts/#{@project.code}") && File.exists?("deployconf/hosts/#{@project.code}/#{@project.code}.tmpl")
+        Dir.chdir("deployconf/hosts/#{@project.code}")
+        fout = File.open("hosts","w")
+
+        @service.environments.each do |env|
+          next if env.name !~ /int|qa/
+          fin = File.open("#{@project.code}.tmpl","r")
+          fin.each do | line |
+            line.gsub!(/__ENV__/, env.name)
+            line.gsub!(/__PROJECT__/,@project.code)
+            fout.puts line
+          end
+          fin.close
+        end
+        fout.close
+
+        #copy tmp file to sfo-ops-adm-01:/okl/PROJECT/qdeploy/services/PROJECT/etc/hosts
+        FileUtils.cp("#{@tmp_root}/deployconf/hosts/#{@project.code}/hosts","#{@deploy_host}:/okl/#{@project.code}/qdeploy/services/#{@project.code}/etc/hosts")
+      end
+    end
+  end
+

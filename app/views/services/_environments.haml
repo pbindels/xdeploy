@@ -1,0 +1,23 @@
+#environments
+  .well.well-small
+    = form_tag add_environment_project_service_path(@project, @service), class: "form-inline", remote: true do 
+      = label_tag "Environment"
+      = select_tag( :environment_id,
+      options_from_collection_for_select(Environment.where.not(:id => @service.environment_ids).sort{|a,b| a.name <=> b.name}, :id, :name),
+       class: 'input-small',  disabled: Environment.where.not(:id => @service.environment_ids).empty? ? true : false)
+      = button_tag class: "btn btn-success", disabled: Environment.where.not(:id => @service.environment_ids).empty? ? true : false do
+        %i.icon-plus-sign
+        Add
+  %table.table.table-hover.table-condensed.table-striped
+    %thead
+      %th Environment
+      %th Remove
+    %tbody
+      - @service.environments.order(:name).each do |env|
+        %tr
+          %td
+            = env.name
+
+          %td
+            = link_to remove_environment_project_service_path(@project, @service, environment_id: env.id), method: :delete, remote: true, class: 'btn btn-small' do 
+              %i.icon-trash

@@ -1,0 +1,104 @@
+#deploymentContent
+  - if @environment
+    - estr = Array.new
+    - enames = Array.new
+    - @environment.sort.each do |e|
+      - estr.push e.id
+      - enames.push e.name
+    - namestr = enames.join(",")
+    %h4{:bgcolor => "#BDBDBD", :class => "active"}5. VERIFY deployment before proceeding: <br>
+    <br>
+    %table.table.table-hover.table-bordered.table-condensed.table-layout
+      %th Attribute
+      %th
+        Value
+        %tr
+          %td Project Name
+          %td
+            %strong
+              =@project.name
+        %tr
+          %td Environment Names
+          %td
+            - @environment.sort.join(",")
+            - @environment.sort{|a,b| a.name <=> b.name}.each do |e|
+              = e.name
+        %tr
+          %td Artifact Name
+          %td
+            %strong
+              =@artifact.name
+    =form_tag deployments_path, :remote => true do
+      = hidden_field_tag :project_id, @project.id
+      = hidden_field_tag :service_id, @service.id
+      = hidden_field_tag :environment_id, estr
+      = hidden_field_tag :artifact_id, @artifact.id
+
+      - if @project.code == "king" && @qdeploy_host =~ /#{@qdeploy_hosts["non-prod1"]}/ && @current_user.username =~ /pbindels|shu/
+        = check_box_tag :web_only, true, false
+        %b Web Host Only Deploy
+
+      .pull-right
+        = button_tag data: {:confirm => "Are you sure you want to proceed with the deployment of artifact #{@artifact.name} for project #{@project.name} to the environments:   #{namestr} ?"},
+        :class => "btn btn-danger" do
+          %i.icon-exclamation-sign.icon-white
+          Deploy
+
+  - elsif @artifact
+    %h4 3. Select an Environment(s)
+    =form_tag new_deployment_path, :remote => true do
+      = hidden_field_tag :project_id, @project.id
+      = hidden_field_tag :service_id, @service.id
+      = hidden_field_tag :artifact_id, @artifact.id
+
+      - opts = Array.new
+      - pds = Array.new
+      - @service.environments.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |u|
+        - next if  u.name =~ /prod/     &&      !(@auth)              &&     (@locked_projects.include?(@service.code))
+        - next if  @qdeploy_host =~ /#{@qdeploy_hosts["prod1"]}/i     &&     u.name =~ /prod/i  && !(@auth)
+        - next if  @qdeploy_host =~ /#{@qdeploy_hosts["non-prod1"]}/i &&     u.name =~ /prod/   && !(@auth)
+        - (u.name =~ /prod/) ? (pds.push([u.name, u.id])) : (opts.push([u.name,u.id]))
+
+      - pds.each do |a|
+        - @qdeploy_host =~ /#{@qdeploy_hosts["prod1"]}/i ? opts.insert(0,[a[0], a[1]]) : opts.push([a[0],a[1]])
+
+      = select_tag("environment_id",  options_for_select(opts), multiple: true)
+
+      %br
+      .pull-right
+        = button_tag  :class => "btn btn-danger" do
+          %i.icon-exclamation-sign.icon-white
+          Select ENVs
+
+  - elsif @service
+    %h4 4. Select an Artifact
+    %ul.nav.nav-tabs.nav-stacked
+      -#= select_tag :artifact_id, options_from_collection_for_select(@artifacts.order("created_at ASC"), :id, :name)
+      - @artifacts.sort{|a,b| b.created_at <=> a.created_at}.each do |artifact|
+        - next if @service.code == "king"  && @qdeploy_host =~ /#{@qdeploy_hosts["prod1"]}/      && artifact.name !~ /^king-release/
+        -# next if @service.code == "king"  && @qdeploy_host =~ /#{@qdeploy_hosts["non-prod1"]}/  && artifact.name =~ /^king-release/
+        %li
+          = link_to new_deployment_path(:project_id => @project.id, :service_id => @service.id, :artifact_id => artifact.id), :remote => true, id: "deployment-link-artifact-#{artifact.id}" do
+            %i.icon-chevron-right.pull-right
+            =artifact.name.gsub(/\.zip/,'')
+
+
+  - elsif @project
+    %h4 2. Select a service
+    %ul.nav.nav-tabs.nav-stacked
+      -@project.services.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |service|
+        %li
+          = link_to new_deployment_path(:project_id => @project.id, :service_id => service.id), :remote => true, id: "deployment-link-service-#{service.id}" do
+            %i.icon-chevron-right.pull-right
+            =service.name
+
+  - else
+    %h4 1. Select a project
+    %ul.nav.nav-tabs.nav-stacked
+      -@projects.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |project|
+        -#- next if project.name == "King"  && @qdeploy_host =~ /#{@qdeploy_hosts["non-prod1"]}/
+        %li
+          = link_to new_deployment_path(:project_id => project.id), :remote => true, id: "deployment-link-project-#{project.id}" do
+            %i.icon-chevron-right.pull-right
+            =project.name
+

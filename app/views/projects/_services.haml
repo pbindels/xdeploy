@@ -1,0 +1,12 @@
+%table#services.table.table-hover.table-condensed
+  %thead
+    %th Service
+    %th Environments
+  %tbody
+    - @project.services.each do |service|
+      - next if !service.persisted?
+      %tr
+        %td= link_to service.name, project_service_path(@project, service)
+        %td
+          - service.environments.map(&:name).each do |env|
+            %span.label.lable-info= env

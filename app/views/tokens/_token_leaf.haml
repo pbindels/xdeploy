@@ -1,0 +1,8 @@
+= link_to  '#', data: {title: "Token: #{token.name}", font: "color: #CC0000", key: token.name, placement: 'right', pk: token.id,
+url: token_path(token), type: 'text', value: token.value}, style: "color:#000000", class: 'token editable' do
+  /%i.icon-key>
+  /=token.name
+  /\-
+  =token.value
+&nbsp&nbsp&nbsp
+- flash[:params] = params

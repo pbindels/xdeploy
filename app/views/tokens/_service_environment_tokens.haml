@@ -1,0 +1,12 @@
+%ul
+  - ServiceToEnvironment.where(service_id: service.id).each do |s2e|
+    %li
+      %a.hideable{:href => "#"}
+        %i.icon-leaf
+        = s2e.environment.name
+      = link_to new_token_path('token[tokenable_type]' => 'ServiceToEnvironment', 'token[tokenable_id]' => s2e.id), class: 'btn btn-mini', remote: true do
+        %i.icon-plus-sign
+      %ul
+        - s2e.tokens.each do |token|
+          %li
+            = render partial: 'token_leaf', locals: {token: token}

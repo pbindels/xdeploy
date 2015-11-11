@@ -1,0 +1,7 @@
+%h4 Public Activity
+.well
+  %ul.unstyled
+    - PublicActivity::Activity.limit(10).order('created_at desc').each do |activity|
+      -next if activity.trackable.nil?
+      %li
+        = render_activity(activity)

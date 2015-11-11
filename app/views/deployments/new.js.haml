@@ -1,0 +1,2 @@
+- template_html = render :file => 'deployments/new.html', layout: false
+!= "$('#deploymentContent').replaceWith('#{j template_html }');"

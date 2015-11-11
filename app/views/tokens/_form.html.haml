@@ -1,0 +1,7 @@
+= simple_form_for(@token, html: {class: 'form-horizontal'}, remote: true) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    = f.input :value
+  .form-actions
+    = f.button :submit, class: 'btn-success'

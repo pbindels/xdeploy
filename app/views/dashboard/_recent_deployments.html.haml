@@ -1,0 +1,4 @@
+%ul.nav.nav-tabs.nav-stacked
+  - Deployment.order(:created_at => :desc).limit(5).each do |deployment|
+    %li
+      = link_to "#{deployment.project.name}-#{deployment.service.name}-#{deployment.environment.name}", "#"

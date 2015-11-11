@@ -1,0 +1,83 @@
+.span12
+  .pull-left
+    = form_tag("/users", method: "get") do
+      = text_field_tag :n
+      = submit_tag("Find Users")
+      %i{:font_size => 1}
+        (pattern match)
+  .pull-right
+    = link_to new_user_path, :class => "btn btn-success" do
+      %i.icon-white.icon-plus-sign
+      New User
+
+%br
+%br
+
+%h1 Users
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+//%table.table.table-striped.table-condensed.table-header-rotated
+%table.table-hover.table-header-rotated
+
+  %tr.small-header
+    %th.rotate-45
+      <div><span>User</div></span>
+    %th.rotate-45
+      <div><span>Deploy Prod</div></span>
+    %th.rotate-45
+      <div><span>Tokens Prod</div></span>
+    %th.rotate-45
+      <div><span>Deploy Int</div></span>
+    %th.rotate-45
+      <div><span>Tokens Int</div></span>
+    %th.rotate-45
+      <div><span>Deploy QA</div></span>
+    %th.rotate-45
+      <div><span>Tokens QA</div></span>
+    %th.rotate-45
+      <div><span>Deploy Load</div></span>
+    %th.rotate-45
+      <div><span>Tokens Load</div></span>
+    %th.rotate-45
+      <div><span>Deploy Perf</div></span>
+    %th.rotate-45
+      <div><span>Tokens Perf</div></span>
+    %th.rotate-45
+      <div><span>Deploy Pm</div></span>
+    %th.rotate-45
+      <div><span>Tokens Pm</div></span>
+    %th.rotate-45
+      <div><span>Delete User</div></span>
+
+
+  - columns = [ "proddep", "prodtok", "intdep", "inttok", "qadep", "qatok",
+                "loaddep", "loadtok", "perfdep", "perftok", "pmdep", "pmtok" ]
+
+  - @users.sort {|a,b| a.username.downcase <=> b.username.downcase}.each do |user|
+    - unless params[:n].nil? || params[:n] == ""
+      - next unless user.username =~ /#{params[:n]}/
+    %tr
+      %td.text-left
+        = link_to user.username, edit_user_path(user)
+      - columns.each do |col|
+        - next unless col =~ /dep|tok/
+        %td
+          = link_to  edit_user_path(user) , data: {toggle: 'tooltip', title: "Edit Permissions for #{user.username}"} do
+            - if user.send(col)
+              %i.fa{:class => "fa-check" , :style => "color:green" }
+            - else
+              %i.fa{:class => "fa-times" , :style => "color:red"}
+      %td
+        = link_to user, :method => :delete, :data => { :confirm => "Are you sure you want to delete user: #{user.username}?" }   do
+          %i.fa{:class => "fa-trash-o", :style => "color:red"}
+
+%br
+
+= link_to new_user_path, :class => "btn btn-success" do
+  %i.icon-white.icon-plus-sign
+  New User
+
+%br
+%br
+%br

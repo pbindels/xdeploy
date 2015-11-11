@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Start date:
+  = @incident.start_date
+%p
+  %b Title:
+  = @incident.title
+%p
+  %b Content:
+  = @incident.content
+%p
+  %b Tag:
+  = @incident.tag
+
+= link_to 'Edit', edit_incident_path(@incident)
+\|
+= link_to 'Back', incidents_path

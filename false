@@ -1,0 +1,1735 @@
+[master 3d90018] deploy to devops
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master 86ec9f6] deploy to devops
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[master bb61b08] deploy to devops
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To git@github.com:/okl/qdeploy.git
+   e98bfc2..bb61b08  master -> master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+
+nothing added to commit but untracked files present
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+
+nothing added to commit but untracked files present
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+
+nothing added to commit but untracked files present
+Everything up-to-date
+[master 0eae60b] deploy to saceng
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master a82515a] deploy to saceng
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+
+nothing added to commit but untracked files present
+To git@github.com:/okl/qdeploy.git
+   bb61b08..a82515a  master -> master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+[master 9aad9f4] deploy to prod1
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master dcde46e] deploy to prod1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[master bdd80c5] deploy to prod1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To git@github.com:/okl/qdeploy.git
+   eabe2d4..bdd80c5  master -> master
+[master 51256d4] deploy to saceng
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master 54e2c71] deploy to saceng
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[master 9e61c68] deploy to saceng
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To git@github.com:/okl/qdeploy.git
+   bdd80c5..9e61c68  master -> master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+	modified:   ../app/controllers/deployments_controller.rb
+	modified:   ../app/views/deployments/run_soarefresh.html.haml
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+	modified:   ../app/controllers/deployments_controller.rb
+	modified:   ../app/views/deployments/run_soarefresh.html.haml
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+	modified:   ../app/controllers/deployments_controller.rb
+	modified:   ../app/views/deployments/run_soarefresh.html.haml
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+[master c184599] deploy to prod1
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master bc14746] deploy to prod1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[master 739ce4a] deploy to prod1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To git@github.com:/okl/qdeploy.git
+   a527a1d..739ce4a  master -> master
+[master 7842701] deploy to saceng
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master fdc16d7] deploy to saceng
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[master 9de9dc5] deploy to saceng
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To git@github.com:/okl/qdeploy.git
+   993c858..9de9dc5  master -> master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+	modified:   ../vendor/assets/stylesheets/prettify.css
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+	modified:   ../vendor/assets/stylesheets/prettify.css
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+	modified:   ../vendor/assets/stylesheets/prettify.css
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/workers/deployment_worker.rb.devops
+	routes.rb.devops
+	settings.yml.devops
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+[master 8e493ec] deploy to prod1
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master 9efd1ca] deploy to prod1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[master 69c55a7] deploy to prod1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To git@github.com:/okl/qdeploy.git
+   be49237..69c55a7  master -> master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+[master 5dd334e] deploy to saceng
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+[master adeed4d] deploy to saceng
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+To git@github.com:/okl/qdeploy.git
+   44adab1..adeed4d  master -> master
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes not staged for commit:
+	modified:   ../Gemfile.lock
+
+Untracked files:
+	../app/controllers/deployments_controller.rb.depeng
+	../app/controllers/deployments_controller.rb.dev
+	../app/controllers/deployments_controller.rb.devops
+	../app/controllers/deployments_controller.rb.rm
+	../app/controllers/test.rb
+	../app/controllers/tokens_controller.rb.depeng
+	../app/models/token.rb.depeng
+	../app/views/common/_top_nav.html.haml.dev
+	../app/views/common/_top_nav.html.haml.prod
+	../app/views/common/_top_nav.html.haml.qdep
+	../app/views/deployments/_dbrefresh.html.haml.devops
+	../app/views/deployments/_get_project_env_status_form.html.haml.depeng
+	../app/views/deployments/_get_project_env_status_form.html.haml.devops
+	../app/views/deployments/_project_env_status_form.html.haml.depeng
+	../app/views/deployments/get_project_env_status.html.haml.depeng
+	../app/views/deployments/new.html.haml.depeng
+	../app/views/deployments/new.html.haml.devops
+	../app/views/deployments/new.html.haml.saceng
+	../app/views/deployments/prodrefresh.html.haml
+	../app/views/deployments/project_env_status.html.haml.depeng
+	../app/views/deployments/run_bulkrefresh.html.haml.devops
+	../app/views/deployments/run_bulkrefresh.html.haml.orig
+	../app/views/prodrefresh.html.haml
+	../app/workers/deployment_worker.rb.devops
+	../bulk_devops_1
+	../bulk_devops_2
+	../bulk_devops_3
+	../bulk_devops_5
+	routes.rb.devops
+	settings.yml.devops
+	../depeng_soa_db
+	../devops_multi
+	../false
+	../prod1_ui
+	../prod_multi
+	../run_cap.rb.orig
+	../script/
+	../sfo_fix_1
+	../sfo_multi
+	../soa_refresh_1
+	../soa_refresh_2
+
+no changes added to commit
+Everything up-to-date

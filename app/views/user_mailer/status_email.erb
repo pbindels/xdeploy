@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<% if @state == "Started" %>
+    <h2><%=  @project %> deployment to <%= @env %> was started by <%= @login %>!</h2>
+<% else %>
+    <h2><%=  @project %> deployment to <%= @env %> has completed!</h2>
+<% end %>
+
+
+<table border="1" cellpadding="7">
+  <caption><b>Deployment stats</b></caption>
+
+  <tr>
+    <td>Project Name </td> <td>  <%=  @project %> </td>
+  </tr>
+
+  <tr>
+    <td>Environment Name</td> <td> <%=  @env %>    </td>
+  </tr>
+
+  <tr>
+    <td>Artifact </td> <td><%=  @artifact.name %>  </td>
+  </tr>
+
+  <tr>
+    <td>Started by</td> <td> <%= @login %>  </td>
+  </tr>
+
+  <tr>
+    <td>Status </td> <td><%=  @state %> @ <%= @date %>  </td>
+  </tr>
+
+</table>
+
+<br>
+<p>If you have any issues contact NetOps: <%= @user %>!</p>
+
+</body>
+</html>

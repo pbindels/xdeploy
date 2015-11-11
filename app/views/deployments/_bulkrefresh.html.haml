@@ -1,0 +1,29 @@
+%strong
+  BULK REFRESH 
+
+%table
+  %tr
+  %td
+    = simple_form_for('refresh',:url => url_for(:action => 'run_bulkrefresh', :controller => 'deployments', :method => 'post')) do |f|
+      = f.error_notification
+
+      = f.input :environment, :prompt => "Select Environment",  label: false,
+        :collection => Environment.where("name not like '%prod%' and name != 'int06' and name != 'int15'").sort{|a,b| a.name <=> b.name }, :include_blank => false
+      = f.input :bulk_type, :prompt => "Select Type",  label: false,
+        :collection => ["SOA", 'Current Production', 'Latest Master'], :include_blank => false
+      = f.button :submit, "Run BULK Refresh", class: "submit", data: { disable_with: "Deploying latest production version of services..." }
+  %td
+    <div id="user"><img src='/assets/help_small.gif'></div> <div id='popup'  "white-space:pre">
+    SOA:&nbsp&nbsp&nbspDeploy latest master version of ONLY SOA Services (SOA only). <br>
+    Current Production:&nbsp&nbsp&nbsp Deploy the current Production version of each project (King + SOA).<br>
+    Latest Master:&nbsp&nbsp&nbspDeploy latest master branch version of each project (King + SOA). <br>
+    SOA Services:
+    = @soa_services.join(", ").gsub(/_service/,"")
+    <br>
+    King Services:
+    = @king_services.join(", ")
+    <br>
+    </div>
+
+  %td
+    .linkto-container

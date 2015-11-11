@@ -1,0 +1,28 @@
+common: &common
+  replacement_token: "__"
+  encryption:
+    secret: "SECRET"
+    hide_token_values: true
+  github:
+    username: ''
+    password: ''
+    org: 'okl'
+    client_id: ""
+    client_secret: ""
+  deployer:
+    host: localhost
+    user: 'smasry'
+  path_prefix: '/tmp'
+development:
+  <<: *common
+  path_prefix: <%= Rails.root.to_s + '/tmp' %>  
+test:
+  <<: *common
+  path_prefix: '/tmp'
+
+production:
+  <<: *common
+  deployer:
+    host: sac-eng-deploy-web-01 
+    user: 'oklrelease'
+    

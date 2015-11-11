@@ -1,0 +1,21 @@
+form{
+  padding-top: 10px;
+  margin-bottom: 0;
+
+  .alert p.error_notification {
+    margin-bottom: 0;
+  }
+
+  .form-actions {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .form-actions {
+    height: 30px;
+  }
+  .form-vertical .boolean .controls {
+    display: inline-block;
+  }
+
+}

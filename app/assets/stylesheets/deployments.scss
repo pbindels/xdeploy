@@ -1,0 +1,43 @@
+body.deployments{
+  
+  #log-modal{
+    width:940px;
+     margin-left:-470px;
+    .modal-body{
+      max-height: 400px;
+      pre{
+        max-height: 350px;
+        overflow: scroll;
+        font-size: 10px;
+        line-height: 12px;
+        ol li{
+          list-style-type: decimal;
+          line-height: 12px;
+        }
+      }
+    }
+  }
+  .table tr {
+    &:hover {
+      //  color: #53A95E;
+      //    background-color: #F8FBEF;
+      background-color:    #A9D0F5;
+      font-weight: bold;
+      font-style: italic;
+      background-color: #A9D0F5;
+
+    }
+  }
+}
+
+#popup {
+  height: 120px;
+  width: 750px;
+  text-align: left;
+  vertical-align:middle;
+  background-color: cornflowerblue;
+  color: white;
+  display: none;
+  padding-top: 8px;
+  position: absolute;
+}

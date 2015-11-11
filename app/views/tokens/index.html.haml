@@ -1,0 +1,239 @@
+.span12
+  .page-header
+    %h1 Tokens
+.row-fluid.token-management
+  .span12
+    -# @selected_envs.include?('All') ? envs = Environment.all.map{|c| c.name}.sort : envs = @selected_envs
+    - envs = Environment.all.map{|c| c.name}.sort
+    - dummy = envs[0]
+    - dummy = params[:env_sel][0]
+    - if params[:env_sel].include?('All')
+      - dummy = envs[0]
+      - puts "#{dummy} is dummy"
+    - envs.unshift("All") if @auth
+
+    = render 'selection', :envs => envs
+
+    - envs.shift if @auth
+    - params[:env_sel] = envs      if params[:env_sel].nil?
+    - params[:view] = "global"     if params[:view].nil? || params[:view] == ""
+    - envs = params[:env_sel]      if params[:env_sel][0]  != "All"
+
+
+    %input{type: 'text', placeholder: 'Filter by Token Name', id: 'filter_by_name_field'}
+    -#%table{:cellpadding=>10, :border=>"1"}
+    %table.table.table-hover.table-bordered.table-condensed.table-layout
+      %colgroup
+        .col.span1
+        .col.span1
+      %caption
+        - if params[:view] != "global"
+          %strong Application View:
+          -#= "#{@project_name} => "
+          - if params[:sub_project] != ""
+            = @service_name
+        - else
+          %strong Global View
+
+      -#%tr{:bgcolor => "#CEE3F6" }
+      %thead
+        %tr{:bgcolor => "#D8D8D8", :class => "active"}
+          %th{ style: "width: 22%" }
+            Tokens
+
+          %th{ style: "width: 20%" }
+            Global
+            %strong{:style => "float:right"}
+              = link_to new_token_path(:project => @project_name, :service => @service_name,:env_sel => envs,
+              :sub_project => params[:sub_project]),
+              data: {toggle: 'tooltip', title: "Add Global Level Token"},
+              class: 'btn btn-mini', id: 'new-global-token-link', remote: true do
+                %i.icon-plus-sign
+
+          - if params[:view] == "global"
+            - envs.each do |e|
+              %th{ style: "width: 20%" }
+                =e
+                %strong{:style => "float:right"}
+                  - if @current_user.permitted?(e,"tok")
+                    = link_to new_token_path(:project => @project_name, :service => @service_name,
+                  :env_sel => envs, :sub_project => params[:sub_project], :view => "global",
+                  'token[tokenable_type]' => 'Environment', 'token[tokenable_id]' => Environment.find_by(name: e).id ),
+                  data: {toggle: 'tooltip', title: "Add Global Environment Token"},
+                  class: 'btn btn-mini', remote: true do
+                      %i.icon-plus-sign
+          - else
+            - if @service_count > 1
+              %th{ class: "col-sm-1" }
+                Project
+                %strong{:style => "float:right"}
+                  - @project.each do |project|
+                    = link_to new_token_path(:project => @project_name, :service => @service_name,
+                    :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+                    'token[tokenable_type]' => 'Project', 'token[tokenable_id]' => project.id),
+                    data: {toggle: 'tooltip', title: "Add Project Level Token!"}, class: 'btn btn-mini', remote: true do
+                      %i.icon-plus-sign
+                      -##add_token{:style => "float:top"} Add Token!
+
+            %th{ class: "col-sm-3" }
+              = "Application"
+              %strong{:style => "float:right"}
+                - @service.each do |service|
+                  = link_to new_token_path(:project => @project_name, :service => @service_name,
+                  :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+                  'token[tokenable_type]' => 'Service', 'token[tokenable_id]' => service.id),
+                  data: {toggle: 'tooltip', title: "Add Application Level Token!"}, class: 'btn btn-mini', remote: true do
+                    %i.icon-plus-sign
+
+            - @service.each do |service|
+              - envs.each do |e|
+                - ServiceToEnvironment.where(service_id: service.id).each do |s2e|
+                  - if s2e.environment.name == e
+                    %th{ class: "col-sm-2" }
+                      #{e}
+                      .add_tok{:style => "float:right"}
+                        - if @current_user.permitted?(e,"tok")
+                          = link_to new_token_path(:project => @project_name, :service => @service_name,
+                            :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+                            :view => @view_name, 'token[tokenable_type]' => 'ServiceToEnvironment',
+                            'token[tokenable_id]' => s2e.id), data: {toggle: 'tooltip', title: "Add Application Environment Token"},
+                            class: 'btn btn-mini', remote: true do
+                            %i.icon-plus-sign
+
+      = render 'show_keys', :dummy => dummy, :envs => envs
+
+      -#- a = Hash.new
+      -#- Environment.all.map {|c| a[c.name] = c.id}
+      -#- alls2es = Array.new
+      -#- @service.each do |service|
+      -#  - alls2es = ServiceToEnvironment.joins(:environment).where(service_id: service.id).order("environments.name")
+      -#
+      -#- @keys.sort.each do |key|
+      -#  - global_set = false
+      -#  - if params[:view] == "global"
+      -#    - global_set = true if Token.global.find_by(name: key)
+      -#    - envs.each do |e|
+      -#      - if @all_tokens[e]["topenv"].include?(key)
+      -#        - global_set = true
+      -#  - else
+      -#    - global_set = true if @all_tokens[dummy]["service"][key]
+      -#    - envs.each do |e|
+      -#      - if @all_tokens[e]["s2e"][key]
+      -#        - global_set = true
+      -#  - if params[:view] == "all"
+      -#    - global_set = true
+      -#
+      -#  - next if ! global_set
+      -#  %tr
+      -#    %td{:bgcolor => "CEE3F6", :align => "center" }
+      -#      %strong #{key} &nbsp&nbsp&nbsp
+      -#      = link_to image_tag("clear.png"), Token.global.find_by(name: key), :method=>:delete,
+      -#      data: {confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+      -#
+      -#    - if @all_tokens[dummy]["global"].include?(key)
+      -#      %td{:bgcolor => "#CEE3F6", :align => "center"}
+      -#        #{render partial: 'token_leaf', locals: {token: @all_tokens[dummy]["global"][key]}}
+      -#        = link_to image_tag("clear.png"), Token.global.find_by(name: key), :method=>:delete,
+      -#        data: {confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+      -#    - else
+      -#      %td{:bgcolor => "#BDBDBD", :align => "center"}
+      -#        = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+      -#         :env_sel => envs, :sub_project => params[:sub_project]), class: 'btn btn-mini',
+      -#         id: 'new-global-token-link', remote: true do
+      -#          NO TOKEN
+      -#          %i.icon-plus-sign
+      -#
+      -#    - if params[:view] == "global"
+      -#      - envs.each do |e|
+      -#        - if @all_tokens[e]["topenv"].include?(key)
+      -#          %td{:bgcolor =>"#D0A9F5", :align => "center"}
+      -#            #{render partial: 'token_leaf', locals: {token: @all_tokens[e]["topenv"][key]} }
+      -#            = link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[e]["topenv"][key].id ), :method=>:delete,
+      -#            data: {confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+      -#        - else
+      -#          %td{:bgcolor =>"#BDBDBD", :align => "center"}
+      -#            = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+      -#            :view => @view_name, :env_sel => envs, :sub_project => params[:sub_project],
+      -#            'token[tokenable_type]' => 'Environment', 'token[tokenable_id]' => a[e]),class: 'btn btn-mini', remote: true do
+      -#              - if @all_tokens[dummy]["global"].include?(key)
+      -#                = @all_tokens[dummy]["global"][key].value
+      -#              - else
+      -#                NO TOKEN
+      -#              %i.icon-plus-sign
+      -#
+      -#    - else
+      -#      - if @all_tokens[dummy]["service"][key]
+      -#        %td{:bgcolor =>"#E1F5A9", :align => "center"}
+      -#          #{render partial: 'token_leaf', locals: {token: @all_tokens[dummy]["service"][key] }}
+      -#          = link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[dummy]["service"][key].id ), :method=>:delete,
+      -#          data: {confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+      -#      - else
+      -#        %td{:bgcolor => "#BDBDBD", :align => "center"}
+      -#          - @service.each do |service|
+      -#            = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+      -#            :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+      -#            'token[tokenable_type]' => 'Service', 'token[tokenable_id]' => service.id),
+      -#            class: 'btn btn-mini', remote: true do
+      -#              - if @all_tokens[dummy]["global"][key]
+      -#                = @all_tokens[dummy]["global"][key].value
+      -#              - else
+      -#                NO TOKEN
+      -#              %i.icon-plus-sign
+      -#
+      -#      - alls2es.each do |s2e|
+      -#        - envs.sort.each do |e|
+      -#          - if s2e.environment.name == e
+      -#            - if @all_tokens[e]["s2e"][key]
+      -#              %td{:bgcolor => "#F5BCA9", :align => "center"}
+      -#                #{render partial: 'token_leaf', locals: {token: @all_tokens[e]["s2e"][key] }}
+      -#                = link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[e]["s2e"][key].id ), :method=>:delete,
+      -#                data: {confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+      -#            - else
+      -#              %td{:bgcolor => "#BDBDBD", :align => "center"}
+      -#                = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+      -#                :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+      -#                :view => @view_name, 'token[tokenable_type]' => 'ServiceToEnvironment',
+      -#                'token[tokenable_id]' => s2e.id), class: 'btn btn-mini', remote: true do
+      -#                  - if @all_tokens[e]["service"][key]
+      -#                    = @all_tokens[e]["service"][key].value
+      -#                  - elsif @all_tokens[e]["topenv"][key]
+      -#                    = @all_tokens[e]["topenv"][key].value
+      -#                  - elsif @all_tokens[e]["global"][key]
+      -#                    = @all_tokens[e]["global"][key].value
+      -#                  - else
+      -#                    NO TOKEN
+      -#                  %i.icon-plus-sign
+      -#
+      -#
+      -#
+
+
+
+    %br
+    %br
+
+-#.row-fluid.token-management
+-#  .span12
+-#    .tree
+-#      %ul.unstyled
+-#        %li
+-#          %a.leaf.hideable{:href => "#", "data-toggle" => 'tooltip', "data-title" => "#{Token.count} tokens", "data-placement" => 'right' ,"data-container" => "body"}
+-#            %strong Tokens
+-#          / Global Tokens
+-#          = link_to new_token_path(), class: 'btn btn-mini', id: 'new-global-token-link', remote: true do
+-#            %i.icon-plus-sign
+-#
+-#          %ul
+-#            - @global_tokens.each do |token|
+-#              %li
+-#                = render partial: 'token_leaf', locals: {token: token}
+-#            %li
+-#              %a.hideable{:href => "#", "data-toggle" => 'tooltip', "data-title" => "#{Project.count} projects", "data-placement" => 'right'}
+-#                %i.icon-folder-open
+-#                %strong Projects
+-#              = render 'project_tokens'
+-#            %li
+-#              %a.hideable{:href => "#", "data-toggle" => 'tooltip', "data-title" => "#{Environment.count} environments", "data-placement" => 'right'}
+-#                %i.icon-folder-open
+-#                %strong Environments
+-#              = render 'environment_tokens'

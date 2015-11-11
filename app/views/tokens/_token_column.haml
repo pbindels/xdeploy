@@ -1,0 +1,9 @@
+.span2
+  .token-column.thumbnail
+    %ul.unstyled
+      - @folders.each do |folder|
+        %li{class: folder.class.to_s.downcase}
+          = link_to display_tokens_path(class: folder.class.to_s.downcase, id: folder.id), remote: true do
+            %i.icon-folder-open
+            =folder.name
+            %i.icon-angle-right.pull-right

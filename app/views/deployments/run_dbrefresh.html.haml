@@ -1,0 +1,14 @@
+= render 'dbrefresh.html.haml'
+
+<p><br><br>
+%strong
+  Process Status:
+  = @process !~ /not running/ ? "  Process Running!!" : "  Process Not Started!!"
+  <br>
+  = "PID = "
+  = @ret_val
+  <br>
+  = "Process String = #{@process}"
+
+.linkto-container
+.linkto-container2

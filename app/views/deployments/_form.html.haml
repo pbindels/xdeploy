@@ -1,0 +1,18 @@
+- params[:env_sel] = Environment.where("name = ?", "qe01").first if params[:env_sel].nil?
+- envid = Environment.where("name = ?", params[:env_sel].name).first.id
+
+= form_tag("/deployments/get_status", :method => "get") do
+  = label_tag :project_name, ""
+  = select_tag(:environment, options_for_select(Environment.all.map{|c| c.name}.sort),
+    {:id => "select",:prompt => "Select An Environment", :selected => envid})
+  .form-actions
+    = submit_tag("See Environment Deployments", :class => "btn-primary")
+
+
+//= simple_form_for('status',:url => url_for(:action => 'get_status', :controller => 'deployments', :status => {:environment => params["status"] },:method => 'get', :escape => false)) do |f|
+-#= simple_form_for('status', :url => url_for(:action => 'get_status', :controller => 'deployments',  :method => 'get', :escape => false)) do |f|
+-#  = f.error_notification
+-#  = f.input :environment, :label => false, :collection => Environment.all.sort{|a,b| a.name <=> b.name },
+-#    :selected => envid, :blank => false
+-#  .form-actions
+-#    = f.button :submit, "See Environment Deployments", :class => "btn-primary"

@@ -1,0 +1,43 @@
+%table
+  %tr
+  %td
+    = simple_form_for('dbrefresh',:url => url_for(:action => 'run_dbrefresh', :controller => 'deployments', :method => 'post')) do |f|
+      = f.error_notification
+      = f.input :environment, :prompt => "Select Environment",  label: false,
+        :collection => Environment.where("name not like '%prod%' and name != 'int06' and name != 'int15'").sort{|a,b| a.name <=> b.name }, :include_blank => false
+      .myform
+  %td
+    .linkto-container
+
+%table.table.table-striped.table-condensed
+  %colgroup
+    .col.span1
+    .col.span1
+  %caption
+    %strong Current DB Refresh Status
+    %br
+    %thead
+      %th Environment
+      %th Db Refresh Status
+      %th Latest Db Refresh Log
+
+      - Environment.all.sort{|a,b| a.name<=>b.name}.each do |e|
+        %tr
+        %td
+          %strong{:class => "field66", :id => e.name}
+            = e.name
+        - if File.exists?("#{@dbrefresh_root}/tmp/servicectl.king.#{e.name}.dbrefresh.sh.lock")
+          %td{:bgcolor => "red"} Running
+        - else
+          %td{:bgcolor => "green"} Complete
+
+        - log = `ls -ltr #{@dbrefresh_root}/services/king/var/servicectl.king.#{e.name}.dbrefresh.sh.* | tail -1`
+        - date = log.split(/\./).last
+        %strong{:class => "field67", :id => "field67"}
+          - date
+        - if date =~ /(\d{8})(\d{2}\:\d{2}\:\d{2})/
+          - dt = $1
+          - time = $2
+        %td
+          = link_to "#{dt} - #{time}", controller: 'deployments', action: 'get_refresh', log_file: "/okl/king/qdeploy/services/king/var/servicectl.king.#{e.name}.dbrefresh.sh.#{date}", :popup => true
+

@@ -1,0 +1,9 @@
+%small.muted
+  %i.icon-cloud-upload.text-info
+  = activity.trackable.service.code
+  \-
+  = activity.owner.username
+  \-
+  = activity.trackable.environment.code unless activity.trackable.environment.nil?
+  =time_ago_in_words(activity.created_at)
+  ago

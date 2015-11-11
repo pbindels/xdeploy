@@ -1,0 +1,13 @@
+%strong
+  SOA REFRESH 
+
+%table
+  %tr
+  %td
+    = simple_form_for('refresh',:url => url_for(:action => 'run_soarefresh', :controller => 'deployments', :method => 'post')) do |f|
+      = f.error_notification
+      = f.input :environment, :prompt => "Select Environment",  label: false,
+        :collection => Environment.where("name not like '%prod%' and name != 'int06' and name != 'int15'").sort{|a,b| a.name <=> b.name }, :include_blank => false
+      = f.button :submit, "Run SOA Refresh", class: "submit", data: { disable_with: "Deploying latest SOA services..." }
+  %td
+    .linkto-container

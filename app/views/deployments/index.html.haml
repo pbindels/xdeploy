@@ -1,0 +1,28 @@
+%table.table.table-striped.table-condensed
+  %thead
+    %th Service
+    %th Env
+    %th Branch
+    %th Build
+    %th User
+    %th Started At
+    %th Logs
+  -# display_count = 0
+  = will_paginate @deployments
+
+  - @deployments.each do |deployment|
+    - if deployment.artifact.name =~ /^(.*?)\-(.*)_(\d+).zip$/
+      - branch = $2
+      - build = $3
+    %tr
+      %td= deployment.service.name
+      %td= deployment.environment.name
+      %td= branch
+      %td= build
+      %td= (deployment.user.blank?) ? "" : deployment.user.username
+      %td
+        =deployment.started_at.in_time_zone("Pacific Time (US & Canada)")
+        PST
+      %td
+        - if deployment.log_path
+          = link_to "View logs", logs_deployment_path(deployment)

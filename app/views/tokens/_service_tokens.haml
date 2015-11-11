@@ -1,0 +1,18 @@
+%ul
+  - project.services.each do |service|
+    %li
+      %a.hideable{:href => "#", "data-toggle" => 'tooltip', "data-title" => "#{service.tokens.count} tokens", "data-placement" => 'right'}
+        %i.icon-leaf
+        = service.name
+      = link_to new_token_path('token[tokenable_type]' => 'Service', 'token[tokenable_id]' => service.id), class: 'btn btn-mini', remote: true do
+        %i.icon-plus-sign
+      %ul
+        - service.tokens.each do |token|
+          %li
+            = render partial: 'token_leaf', locals: {token: token}
+        - if service.environments.exists?
+          %li
+            %a.hideable{:href => "#", "data-toggle" => 'tooltip', "data-title" => "#{service.environments.count} environments", "data-placement" => 'right'}
+              %i.icon-globe
+              %strong Environments
+            = render partial: 'service_environment_tokens', locals: {service: service}

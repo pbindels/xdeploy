@@ -1,0 +1,1 @@
+require 'qdeploy/scm/github'

@@ -1,0 +1,23 @@
+%h1 Listing incidents
+
+%table.table
+  %tr
+    %th Start date
+    %th Title
+    %th Tag
+    %th
+    %th
+    %th
+
+  - @incidents.each do |incident|
+    %tr
+      %td= incident.start_date
+      %td= incident.title
+      %td= incident.tag
+      %td= link_to 'Show', incident
+      %td= link_to 'Edit', edit_incident_path(incident)
+      %td= link_to 'Destroy', incident, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Incident', new_incident_path

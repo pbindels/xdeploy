@@ -1,0 +1,168 @@
+// Place all the styles related to the tokens controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body.tokens{
+  .token-column{
+    min-height: 500px;
+    form{
+      border: none;
+    }
+    ul{
+      li.token{
+        background: #fff;
+        display: block;
+        font-size: 12px;
+      }
+    }
+  }
+  .tree ul{
+    
+  }
+ 
+  .table td {
+    //background: #fff;
+    //display: block;
+    font-size: 12px;
+  }
+
+  .tree li {
+    margin: 0px 0;
+    list-style-type: none;
+    position: relative;
+    padding: 5px 5px 0px 5px;
+  }
+
+  .tree li::before{
+    content: '';
+    position: absolute; 
+    top: 0;
+    width: 1px; 
+    height: 100%;
+    right: auto; 
+    left: -10px;
+    border-left: 1px solid #ccc;
+    bottom: 20px;
+  }
+  .tree li::after{
+    content: '';
+    position: absolute; 
+    top: 20px; 
+    width: 15px; 
+    height: 20px;
+    right: auto; 
+    left: -10px;
+    border-top: 1px solid #ccc;
+  }
+  .tree li a{
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 3px 5px;
+    text-decoration: none;
+    color: #666;
+    font-family: arial, verdana, tahoma;
+    font-size: 12px;
+      border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+  .tree li a.hideable{
+    background: #f1f1f1;
+  }
+  /*Remove connectors before root*/
+  .tree > ul > li::before, .tree > ul > li::after{
+    border: 0;
+  }
+  /*Remove connectors after last child*/
+  .tree li:last-child::before{ 
+        height: 20px;
+  }
+
+  /*Time for some hover effects*/
+  /*We will apply the hover effect the the lineage of the element also*/
+  .tree li a:hover, .tree li a:hover+ul li a {
+    background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+  }
+  /*Connector styles on hover*/
+  .tree li a:hover+ul li::after, 
+  .tree li a:hover+ul li::before, 
+  .tree li a:hover+ul::before, 
+  .tree li a:hover+ul ul::before{
+    border-color:  #94a0b4;
+  }
+
+  button_new {
+    background-image: url(images/clear.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /* put the height and width of your image here */
+    height: 50px;
+    width: 200px;
+    border: none;
+  }
+
+  button_new span {
+    display: none;
+  }
+  text-decoration: none;
+
+}
+
+#new {
+   height: 60px;
+   width: 200px;
+   text-align: center;
+   vertical-align:middle;
+   //background-color: red;
+   //background-color: cornflowerblue;
+   color: white;
+   display: none;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   left: 150px;
+   position: fixed;
+ }
+#new2 {
+  height: 20px;
+  width: 100px;
+  text-align: center;
+  vertical-align:middle;
+  background-color: cornflowerblue;
+  color: white;
+  display: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+}
+
+#add_token {
+  height: 20px;
+  width: 100px;
+  text-align: center;
+  vertical-align:middle;
+  background-color: cornflowerblue;
+  color: white;
+  display: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+}
+
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+
+  -webkit-transition: opacity 0.25s, width 0.25s;
+  -moz-transition: opacity 0.25s, width 0.25s;
+  -o-transition: opacity 0.25s, width 0.25s;
+  transition: opacity 0.25s, width 0.25s;
+}
+
+.has-spinner.active {
+  cursor:progress;
+}
+
+.has-spinner.active .spinner {
+  opacity: 1;
+  width: auto; /* This doesn't work, just fix for unkown width elements */
+}

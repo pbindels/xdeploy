@@ -1,0 +1,232 @@
+
+
+- t3 = Time.now
+- a = Hash.new
+- Environment.all.map {|c| a[c.name] = c.id}
+- alls2es = Array.new
+- @service.each do |service|
+  - alls2es = ServiceToEnvironment.joins(:environment).where(service_id: service.id).order("environments.name")
+
+- all_globals = Hash[ Token.global.all.map{ |c| [c.name,c]} ]
+
+- @keys.sort.each do |key|
+  - global_set = false
+  - if params[:view] == "global"
+    -# global_set = true if Token.global.find_by(name: key)
+    - global_set = true if all_globals.include?(key)
+    - envs.each do |e|
+      - if @all_tokens[e]["topenv"].include?(key)
+        - global_set = true
+  - else
+    - global_set = true if @all_tokens[dummy]["service"][key]
+    - global_set = true if @all_tokens[dummy]["proj"][key] && @service_count > 1
+    - envs.each do |e|
+      - if @all_tokens[e]["s2e"][key]
+        - global_set = true
+  - if params[:view] == "all"
+    - global_set = true
+
+  - next if ! global_set
+
+  %tr
+    %td{ :bgcolor => "#BDBDBD", :align => "center" }
+      %strong #{key} &nbsp&nbsp&nbsp
+      - if @auth
+        -#tok = Token.global.find_by(name: key)
+        -tok = all_globals[key]
+        -#tok != nil ? newid = tok.id : newid = Token.find_by(name: key).id
+        -tok != nil ? newid = tok.id : newid = @flat_props[key].id
+        %strong{:style => "float:right"}= link_to image_tag("redx2.gif"), token_path(newid, :kill_token => true), :method=>:delete,
+          data: {toggle: 'tooltip', title: "CAUTION! Deleting the token here will delete *EVERY** occurence of this token!!",
+          confirm: "Are you sure you want to delete this token?  **Every** instance of token \"#{key}\" will be deleted!!!",
+          :controller => 'token', :action => "destroy"  }
+        -#%img{:class => "newuser", :src => "/assets/help_small.gif"}
+        #new{:style => "float:right"} Deleting the token here will delete **EVERY** single occurrence of the token!!
+
+
+    - if @all_tokens[dummy]["global"].include?(key)
+      %td{:bgcolor => "#A9BCF5", :align => "center"}
+        - if @auth
+          -##{render partial: 'token_leaf', locals: {token: @all_tokens[dummy]["global"][key]} }
+          - token = @all_tokens[dummy]["global"][key]
+          = link_to  '#', data: {title: "Token: #{token.name}", font: "color: #CC0000", key: token.name, placement: 'right', pk: token.id,
+          url: token_path(token), type: 'text', value: token.value}, style: "color:#000000", class: 'token editable'  do
+            =token.value
+          &nbsp&nbsp&nbsp
+          - flash[:params] = params
+
+          -#%strong{:style => "float:right"}= link_to image_tag("clear.png"), Token.global.find_by(name: key), :method=>:delete,
+          %strong{:style => "float:right"}= link_to image_tag("clear.png"), all_globals[key], :method=>:delete,
+          data: {toggle: 'tooltip', title: "Delete Global Token for #{key}!",
+          confirm: "Are you sure you want to delete this token \"#{key}\"?", :controller => 'token', :action => "destroy"}
+          #new2{:style => "float:right"} Delete token!
+        - else
+          = @all_tokens[dummy]["global"][key].value
+    - else
+      %td{:bgcolor => "#D8D8D8", :align => "center"}
+        = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+         :env_sel => envs, :sub_project => params[:sub_project]),
+         data: {toggle: 'tooltip', title: "Add Global Level Token for #{key}!"},
+         class: 'btn btn-mini',
+         id: 'new-global-token-link', remote: true do
+          NO TOKEN
+          %i.icon-plus-sign
+
+    - if params[:view] == "global"
+      - envs.each do |e|
+        - if @all_tokens[e]["topenv"].include?(key)
+          %td{:bgcolor =>"#D0A9F5", :align => "center"}
+            - token = @all_tokens[e]["topenv"][key]
+            -# if e != "prod" || @auth  || @current_user.permitted?(e,"tok")
+            - if  @auth  || @current_user.permitted?(e,"tok")
+              = link_to  '#', data: {title: "Token: #{token.name}", font: "color: #CC0000", key: token.name, placement: 'right', pk: token.id,
+              url: token_path(token), type: 'text', value: token.value}, style: "color:#000000", class: 'token editable'  do
+                =token.value
+              &nbsp&nbsp&nbsp
+              - flash[:params] = params
+
+              -##{render partial: 'token_leaf', locals: {token: @all_tokens[e]["topenv"][key]} }
+              -#%strong{:style => "float:right"}= link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[e]["topenv"][key].id ), :method=>:delete,
+              %strong{:style => "float:right"}= link_to image_tag("clear.png"), @all_tokens[e]["topenv"][key], :method=>:delete,
+              data: { toggle: 'tooltip', title: "Delete Environment Level Token!",
+              confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+              #new2{:style => "float:right"} Delete token!
+            - else
+              =token.value
+        - else
+          %td{:bgcolor =>"#BDBDBD", :align => "center"}
+            - if @current_user.permitted?(e,"tok")
+              = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+              :view => @view_name, :env_sel => envs, :sub_project => params[:sub_project],
+              'token[tokenable_type]' => 'Environment', 'token[tokenable_id]' => a[e]),
+              data: {toggle: 'tooltip', title: "Add Environment Level Token for #{key}"},
+              class: 'btn btn-mini', remote: true do
+                - if @all_tokens[dummy]["global"].include?(key)
+                  = @all_tokens[dummy]["global"][key].value
+                - else
+                  NO TOKEN
+                %i.icon-plus-sign
+            - else
+              - if @all_tokens[dummy]["global"].include?(key)
+                = @all_tokens[dummy]["global"][key].value
+              - else
+                NO TOKEN
+
+    - else
+
+      - if @service_count > 1
+        - if @all_tokens[dummy]["proj"][key]
+          %td{:bgcolor =>"#C88DC8", :align => "center"}
+
+            - token = @all_tokens[dummy]["proj"][key]
+            = link_to  '#', data: {title: "Token: #{token.name}", font: "color: #CC0000", key: token.name, placement: 'right', pk: token.id,
+            url: token_path(token), type: 'text', value: token.value}, style: "color:#000000", class: 'token editable'  do
+              =token.value
+            &nbsp&nbsp&nbsp
+            - flash[:params] = params
+
+            -##{render partial: 'token_leaf', locals: {token: @all_tokens[dummy]["proj"][key] }}
+            -#%strong{:style => "float:right"}= link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[dummy]["proj"][key].id ),
+            %strong{:style => "float:right"}= link_to image_tag("clear.png"), @all_tokens[dummy]["proj"][key],
+            :method=>:delete, data: {toggle: 'tooltip', title: "Delete Project Level Token for #{key}!",
+            confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+            #new2{:style => "float:right"} Delete token!
+        - else
+          %td{:bgcolor => "#BDBDBD", :align => "center"}
+            - @project.each do |project|
+              = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+              :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+              'token[tokenable_type]' => 'Project', 'token[tokenable_id]' => project.id),
+              data:{toggle: 'tooltip', title: "Add Project Level Token for #{key}!"}, class: 'btn btn-mini', remote: true do
+                - if @all_tokens[dummy]["global"][key]
+                  = @all_tokens[dummy]["global"][key].value
+                - else
+                  NO TOKEN
+                %i.icon-plus-sign
+
+
+      - if @all_tokens[dummy]["service"][key]
+        %td{:bgcolor =>"#E1F5A9", :align => "center"}
+
+          - token = @all_tokens[dummy]["service"][key]
+          = link_to  '#', data: {title: "Token: #{token.name}", font: "color: #CC0000", key: token.name, placement: 'right', pk: token.id,
+          url: token_path(token), type: 'text', value: token.value}, style: "color:#000000", class: 'token editable'  do
+            =token.value
+          &nbsp&nbsp&nbsp
+          - flash[:params] = params
+
+          -##{render partial: 'token_leaf', locals: {token: @all_tokens[dummy]["service"][key] }}
+          -#%strong{:style => "float:right"}= link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[dummy]["service"][key].id ), :method=>:delete,
+          %strong{:style => "float:right"}= link_to image_tag("clear.png"), @all_tokens[dummy]["service"][key], :method=>:delete,
+          data: {toggle: 'tooltip', title: "Delete Application Level Token for #{key}!",
+          confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+          #new2{:style => "float:right"} Delete token!
+      - else
+        %td{:bgcolor => "#BDBDBD", :align => "center"}
+          - @service.each do |service|
+            = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+            :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+            'token[tokenable_type]' => 'Service', 'token[tokenable_id]' => service.id),
+            data: {toggle: 'tooltip', title: "Add Application Level Token for #{key}!"}, class: 'btn btn-mini', remote: true do
+              - if @all_tokens[dummy]["proj"][key]
+                = @all_tokens[dummy]["proj"][key].value
+              - elsif @all_tokens[dummy]["global"][key]
+                = @all_tokens[dummy]["global"][key].value
+              - else
+                NO TOKEN
+              %i.icon-plus-sign
+
+      - alls2es.each do |s2e|
+        - envs.sort.each do |e|
+          - next if ((! params[:env_sel].include?('All')) && (! params[:env_sel].include?(e)))
+          - if s2e.environment.name == e
+            - puts "here"
+            - if @all_tokens[e]["s2e"][key]
+              %td{:bgcolor => "#F5BCA9", :align => "center"}
+                -# if e != "prod" || @auth
+                - if @auth || @current_user.permitted?(e,"tok")
+                  - token = @all_tokens[e]["s2e"][key]
+                  = link_to  '#', data: {title: "Token: #{token.name}", font: "color: #CC0000", key: token.name, placement: 'right', pk: token.id,
+                  url: token_path(token), type: 'text', value: token.value}, style: "color:#000000", class: 'token editable'  do
+                    =token.value
+                  &nbsp&nbsp&nbsp
+                  - flash[:params] = params
+
+
+                  -##{render partial: 'token_leaf', locals: {token: @all_tokens[e]["s2e"][key] }}
+                  -#%strong{:style => "float:right"}= link_to image_tag("clear.png"), Token.find_by(id: @all_tokens[e]["s2e"][key].id ), :method=>:delete,
+                  %strong{:style => "float:right"}= link_to image_tag("clear.png"), @all_tokens[e]["s2e"][key] , :method=>:delete,
+                  data: {toggle: 'tooltip', title: "Delete Application Environment Level (#{e}) Token for #{key}!",
+                  confirm: 'Are you sure you want to delete this token?', :controller => 'token', :action => "destroy"}
+                  #new2 Delete Token!
+                - else
+                  = @all_tokens[e]["s2e"][key].value
+            - else
+              %td{:bgcolor => "#BDBDBD", :align => "center"}
+                - if @current_user.permitted?(e,"tok")
+                  = link_to new_token_path(:token_name => key, :project => @project_name, :service => @service_name,
+                  :env_sel => envs, :sub_project => params[:sub_project], :view => "service",
+                  :view => @view_name, 'token[tokenable_type]' => 'ServiceToEnvironment',
+                  'token[tokenable_id]' => s2e.id), data: {toggle: 'tooltip', title: "Add Application Env Token For #{key}!"},
+                  class: 'btn btn-mini', remote: true do
+                    - if @all_tokens[e]["service"][key]
+                      = @all_tokens[e]["service"][key].value
+                    - elsif @all_tokens[e]["proj"][key]
+                      = @all_tokens[e]["proj"][key].value
+                    - elsif @all_tokens[e]["topenv"][key]
+                      = @all_tokens[e]["topenv"][key].value
+                    - elsif @all_tokens[e]["global"][key]
+                      = @all_tokens[e]["global"][key].value
+                    - else
+                      NO TOKEN
+                    %i.icon-plus-sign
+                - else
+                  - if @all_tokens[e]["service"][key]
+                    = @all_tokens[e]["service"][key].value
+                  - elsif @all_tokens[e]["proj"][key]
+                    = @all_tokens[e]["proj"][key].value
+                  - elsif @all_tokens[e]["topenv"][key]
+                    = @all_tokens[e]["topenv"][key].value
+                  - elsif @all_tokens[e]["global"][key]
+                    = @all_tokens[e]["global"][key].value
+

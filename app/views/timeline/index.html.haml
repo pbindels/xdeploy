@@ -1,0 +1,31 @@
+!!! 5
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %meta{name: "description", content: ""}
+    %meta{name: "author", content: ""}
+    /[if lt IE]
+      %script{src: "https://html5shim.googlecode.com/svn/trunk/html5.js"}  
+    %title qdeploy - timeline
+    %link{rel: "shortcut icon", href: "/favicon.ico"}
+  %body
+    #timeline-embed
+  = javascript_include_tag 'jquery.js'
+  
+  :javascript
+    var timeline_config = {
+        width:              '100%',
+        height:             '600',
+        source:             '/timeline.json',
+        embed_id:           'timeline-embed',
+        start_at_end:       true,
+        start_zoom_adjust:  '-2',
+        hash_bookmark:      true,
+        debug:              false,
+        lang:               'en',
+        maptype:            'watercolor',
+        css:                '/assets/timeline.css',
+        js:                 '/assets/timeline.js'
+    }
+  = javascript_include_tag "storyjs-embed.js"

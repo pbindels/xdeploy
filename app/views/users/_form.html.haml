@@ -1,0 +1,37 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+  %table.table.table-striped.table-condensed
+    %tr
+      %thead
+        %th User
+        %th Deploy Prod
+        %th Token Prod
+        %th Deploy Int
+        %th Token Int
+        %th Deploy QA
+        %th Token QA
+        %th Deploy Load
+        %th Tokens Load
+        %th Deploy Perf
+        %th Tokens Perf
+        %th Deploy Pm
+        %th Tokens Pm
+
+    .form-inputs
+      %tr
+        %td= f.input :username, label: false
+        %td= f.input :proddep, label: false
+        %td= f.input :prodtok, label: false
+        %td= f.input :intdep, label: false
+        %td= f.input :inttok, label: false
+        %td= f.input :qadep, label: false
+        %td= f.input :qatok, label: false
+        %td= f.input :loaddep, label: false
+        %td= f.input :loadtok, label: false
+        %td= f.input :perfdep, label: false
+        %td= f.input :perftok, label: false
+        %td= f.input :pmdep, label: false
+        %td= f.input :pmtok, label: false
+
+  .form-actions
+    = f.button :submit

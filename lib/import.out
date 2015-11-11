@@ -1,0 +1,710 @@
+AB_TEST DEPLOYER KEY       : RUBY_HOME
+DEPLOYER INT  VALUE: /opt/ruby/1.9.2
+DEPLOYER PROD VALUE: /opt/ruby/1.9.2
+QDEPLOY VALUE:  /opt/ruby/1.9.3-p392
+/opt/ruby/1.9.2 - /opt/ruby/1.9.3-p392
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : RUBY_HOME
+       QDEPLOY VALUE  : /opt/ruby/1.9.2
+       DESC           : 
+       ENCRYPT        : Ky9Ib0VCSmFFS1JmbEFrd0F5K1ZxaGxLU0U3SzVoUzEvTDFYVUVjVXIxMD0tLWFzelFFZ2VTZzBKQ2lZcXp1NitQeHc9PQ==--88042bcc0f5101093d7ae0841a59f48506433b77
+INSERT INTO tokens values(NULL,'Service','13','RUBY_HOME','Ky9Ib0VCSmFFS1JmbEFrd0F5K1ZxaGxLU0U3SzVoUzEvTDFYVUVjVXIxMD0tLWFzelFFZ2VTZzBKQ2lZcXp1NitQeHc9PQ==--88042bcc0f5101093d7ae0841a59f48506433b77',NOW(),NOW(),'')
+/opt/ruby/1.9.2 - /opt/ruby/1.9.2
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : OKL_USER
+DEPLOYER INT  VALUE: okluser
+DEPLOYER PROD VALUE: okluser
+QDEPLOY VALUE:  okluser
+okluser - okluser
+okluser - okluser
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : PASSENGER_VERSION
+DEPLOYER INT  VALUE: 3.0.7
+DEPLOYER PROD VALUE: 3.0.7
+QDEPLOY VALUE:  3.0.19
+3.0.7 - 3.0.19
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : PASSENGER_VERSION
+       QDEPLOY VALUE  : 3.0.7
+       DESC           : 
+       ENCRYPT        : OEt3eVdIUTE0LzNJdW9TcVlhVlBjZz09LS10ZERWbE1XSktBbmhZM0pUWVozNk5RPT0=--60d88f67912a35ed388442f8aa49c2bbf893807a
+INSERT INTO tokens values(NULL,'Service','13','PASSENGER_VERSION','OEt3eVdIUTE0LzNJdW9TcVlhVlBjZz09LS10ZERWbE1XSktBbmhZM0pUWVozNk5RPT0=--60d88f67912a35ed388442f8aa49c2bbf893807a',NOW(),NOW(),'')
+3.0.7 - 3.0.7
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : RAILS_ROOT
+DEPLOYER INT  VALUE: /okl/ab_test/__ENV_NAME__/rails
+DEPLOYER PROD VALUE: /okl/ab_test/__ENV_NAME__/rails
+QDEPLOY VALUE:  __SERVICE_ROOT__/rails
+/okl/ab_test/__ENV_NAME__/rails - __SERVICE_ROOT__/rails
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : RAILS_ROOT
+       QDEPLOY VALUE  : /okl/ab_test/__ENV_NAME__/rails
+       DESC           : Rails Root
+       ENCRYPT        : MkpPdEV6Vk45RTFTbUZDYmczaXZUbnNxMmZsajBZMmU3T0JXcXpSQUk2RDRHMDlGTWRGUXQ0R25yaXRORTNwMy0tbldoaE5lQk9mYnBjUlordUEvZisvUT09--628522ebf6869b4638cb60adec7257a16338f301
+INSERT INTO tokens values(NULL,'Service','13','RAILS_ROOT','MkpPdEV6Vk45RTFTbUZDYmczaXZUbnNxMmZsajBZMmU3T0JXcXpSQUk2RDRHMDlGTWRGUXQ0R25yaXRORTNwMy0tbldoaE5lQk9mYnBjUlordUEvZisvUT09--628522ebf6869b4638cb60adec7257a16338f301',NOW(),NOW(),'Rails Root')
+/okl/ab_test/__ENV_NAME__/rails - /okl/ab_test/__ENV_NAME__/rails
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APPLICATION_ENV
+DEPLOYER INT  VALUE: __ENV_NAME__
+DEPLOYER PROD VALUE: __ENV_NAME__
+QDEPLOY VALUE:  __ENV_NAME__
+__ENV_NAME__ - __ENV_NAME__
+__ENV_NAME__ - __ENV_NAME__
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : KING_DB_HOST
+DEPLOYER INT  VALUE: king-__ENV_NAME__-db01.newokl.com
+DEPLOYER PROD VALUE: king-__ENV_NAME__-db01.newokl.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : KING_DB_HOST
+       QDEPLOY VALUE  : king-__ENV_NAME__-db01.newokl.com
+       DESC           : 
+       ENCRYPT        : eDB2UFdmZ0JLUGl5WTFUcjhZT0Y0bnFQcWNHUWlQVjEyRExLeUQ4S1Uva2lBWmVQZFB4TktyYTVHNTRCdEdiUi0tb1BoNndpdXRwVmlqRml2QVArbXBXUT09--cad8a29f93947b3d292608f095db2423ddda6c42
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('KING_DB_HOST',  'eDB2UFdmZ0JLUGl5WTFUcjhZT0Y0bnFQcWNHUWlQVjEyRExLeUQ4S1Uva2lBWmVQZFB4TktyYTVHNTRCdEdiUi0tb1BoNndpdXRwVmlqRml2QVArbXBXUT09--cad8a29f93947b3d292608f095db2423ddda6c42', NOW(), NOW(), '')
+king-__ENV_NAME__-db01.newokl.com -   king-__ENV_NAME__-db01.newokl.com
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : KING_DB_PORT
+DEPLOYER INT  VALUE: __ENV_ID__030
+DEPLOYER PROD VALUE: __ENV_ID__030
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : KING_DB_PORT
+       QDEPLOY VALUE  : __ENV_ID__030
+       DESC           : 
+       ENCRYPT        : c3dQKyt5eVVSZVV6WGk0WStLZHBrOFRkNVFYMGFYOWNDS1NvaFN6d1pFZz0tLTBXRWNvczNBeFk1M0swMEtuL0ZPQUE9PQ==--26ec324939d365ef54342e8af5e372daabb4e4a9
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('KING_DB_PORT',  'c3dQKyt5eVVSZVV6WGk0WStLZHBrOFRkNVFYMGFYOWNDS1NvaFN6d1pFZz0tLTBXRWNvczNBeFk1M0swMEtuL0ZPQUE9PQ==--26ec324939d365ef54342e8af5e372daabb4e4a9', NOW(), NOW(), '')
+__ENV_ID__030 -   __ENV_ID__030
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : KING_DB_USER
+DEPLOYER INT  VALUE: __ENV_NAME__
+DEPLOYER PROD VALUE: king
+QDEPLOY VALUE:  __ENV_NAME__
+__ENV_NAME__ - __ENV_NAME__
+king - __ENV_NAME__
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : KING_DB_USER
+       QDEPLOY VALUE  : king
+       DESC           : 
+       ENCRYPT        : V3E3ZFdhQUhQVklpSThTSTlYZis2dz09LS1ROXh2YTBOMGRGMkJWNWR3ek1hYnVRPT0=--873f6a241fc5a6eb2ae9fdde059e2c80d88bc1ce
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','KING_DB_USER','V3E3ZFdhQUhQVklpSThTSTlYZis2dz09LS1ROXh2YTBOMGRGMkJWNWR3ek1hYnVRPT0=--873f6a241fc5a6eb2ae9fdde059e2c80d88bc1ce',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : KING_DB_PASSWORD
+DEPLOYER INT  VALUE: int01
+DEPLOYER PROD VALUE: k1ngm3!
+QDEPLOY VALUE:  __ENV_NAME__
+int01 - __ENV_NAME__
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : KING_DB_PASSWORD
+       QDEPLOY VALUE  : int01
+       DESC           : 
+       ENCRYPT        : c0dDemptTHVHRVBqbGRCVENBbnp5UT09LS0yRGFPWGlWNlVrLzVrQnFQSTVhTUlBPT0=--3bdfeb570979d609a5aeae47c2e485981275e9c6
+INSERT INTO tokens values(NULL,'Service','13','KING_DB_PASSWORD','c0dDemptTHVHRVBqbGRCVENBbnp5UT09LS0yRGFPWGlWNlVrLzVrQnFQSTVhTUlBPT0=--3bdfeb570979d609a5aeae47c2e485981275e9c6',NOW(),NOW(),'')
+k1ngm3! - int01
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : KING_DB_PASSWORD
+       QDEPLOY VALUE  : k1ngm3!
+       DESC           : 
+       ENCRYPT        : bFRWUDZFNkJvNGJhWkNaSndOWTNsbXZmcS9qRERRM09lb2VJWWphbFhtbz0tLTNHSlFEdnhhclRTQVNqK3AxQWp4SHc9PQ==--a615a63881d9db37a80dcfcad0d599e4c77bcb70
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','KING_DB_PASSWORD','bFRWUDZFNkJvNGJhWkNaSndOWTNsbXZmcS9qRERRM09lb2VJWWphbFhtbz0tLTNHSlFEdnhhclRTQVNqK3AxQWp4SHc9PQ==--a615a63881d9db37a80dcfcad0d599e4c77bcb70',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : KING_DB_NAME
+DEPLOYER INT  VALUE: king
+DEPLOYER PROD VALUE: king
+QDEPLOY VALUE:  king
+king - king
+king - king
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : CAP_APP_HOSTS
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__-web01.newokl.com ab_test-__ENV_NAME__-web02.newokl.com
+DEPLOYER PROD VALUE: king-prod-web01.newokl.com king-prod-web02.newokl.com king-prod-web03.newokl.com king-prod-web04.newokl.com king-prod-web05.newokl.com king-prod-web06.newokl.com king-prod-web07.newokl.com king-prod-web08.newokl.com king-prod-web09.newokl.com king-prod-web10.newokl.com king-prod-web11.newokl.com king-prod-web12.newokl.com king-prod-web13.newokl.com king-prod-web14.newokl.com king-prod-web15.newokl.com king-prod-web16.newokl.com king-prod-web17.newokl.com king-prod-web18.newokl.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : CAP_APP_HOSTS
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__-web01.newokl.com ab_test-__ENV_NAME__-web02.newokl.com
+       DESC           : 
+       ENCRYPT        : eGFJM0JZSHcwZ3hFbVRSUzU0OTRPVkdweHhyRHYzYnNUcENJakJmSVBsN3k1N3JmeTlpYU1YWTRNWVg0dUlHYTd2bzR6SHJTY3A5Uyt3ZXJmT0xNcjNJaWErM0VUdWNGYnQrVHBnQlgvWmVGQXpoeGw2VERINmlLOWpRbVJ4a28tLTI5WFBpT0VMa1ZRSDVNMEFqYTJHVHc9PQ==--8afe8758f60d1560d5b1132959e4396d8918b5cd
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('CAP_APP_HOSTS',  'eGFJM0JZSHcwZ3hFbVRSUzU0OTRPVkdweHhyRHYzYnNUcENJakJmSVBsN3k1N3JmeTlpYU1YWTRNWVg0dUlHYTd2bzR6SHJTY3A5Uyt3ZXJmT0xNcjNJaWErM0VUdWNGYnQrVHBnQlgvWmVGQXpoeGw2VERINmlLOWpRbVJ4a28tLTI5WFBpT0VMa1ZRSDVNMEFqYTJHVHc9PQ==--8afe8758f60d1560d5b1132959e4396d8918b5cd', NOW(), NOW(), '')
+ab_test-__ENV_NAME__-web01.newokl.com ab_test-__ENV_NAME__-web02.newokl.com -   king-prod-web01.newokl.com king-prod-web02.newokl.com king-prod-web03.newokl.com king-prod-web04.newokl.com king-prod-web05.newokl.com king-prod-web06.newokl.com king-prod-web07.newokl.com king-prod-web08.newokl.com king-prod-web09.newokl.com king-prod-web10.newokl.com king-prod-web11.newokl.com king-prod-web12.newokl.com king-prod-web13.newokl.com king-prod-web14.newokl.com king-prod-web15.newokl.com king-prod-web16.newokl.com king-prod-web17.newokl.com king-prod-web18.newokl.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : CAP_APP_HOSTS
+       QDEPLOY VALUE  : king-prod-web01.newokl.com king-prod-web02.newokl.com king-prod-web03.newokl.com king-prod-web04.newokl.com king-prod-web05.newokl.com king-prod-web06.newokl.com king-prod-web07.newokl.com king-prod-web08.newokl.com king-prod-web09.newokl.com king-prod-web10.newokl.com king-prod-web11.newokl.com king-prod-web12.newokl.com king-prod-web13.newokl.com king-prod-web14.newokl.com king-prod-web15.newokl.com king-prod-web16.newokl.com king-prod-web17.newokl.com king-prod-web18.newokl.com
+       DESC           : 
+       ENCRYPT        : Wjc3V09ZR2FxOFFHYjlJUXZVMmtLemxjMERzVTI0KzVWTEh0VWE2ZnNoVUlVcXplNHZiMGRmc0J6eTgvbzFweitmZEhTd0o1UUZYMHNscVppMFl2d2cya1J3UUQ0KzMvQVY1TWRTdGJJZndCYjh1L3VKTHhQcFA3b2dHRkNKNi80RzdRa204eE9rVU9aMXlFakFSODY1WFp1SFcrR3FHYzlyN3JaSXg0Slc1dmhFaUN0ZGtGUWJ0ZmtsUkRNQ0FzeU1ia2x1empwUEdvTmhqYUc3UHpDK24vczFsVFpraWd1YVNjV091empTOXFSUTlUOXQrZlhwRDQwcmcwZXR4YzFjeVczc3doaEFOR1pBV0g1bktyZStITDJZenZMOXpSMkF5MHBUbzdtMCtzOC9keVdFc2IyZ1dKZWozcVVFM2pTYnRHckE2RDZUMVZaUXhaQ3ZuQStZeGUyOFZqb3JDYXpzS0F1bGRDdDRMVUp3aS8rTVdKcllSMmZQbm5qK3RIcUVvVVc5WTV6aEVuZGNQb2dnK3A1NDg3M0w5WnZaYzI4UGRwNTdOZENsa1NPbGFnOG9HU2dRSWxDN1ZGUGMwUUpIaGM5ckdlZXpuN0lpWnY3aEJPNWM5NktsN2pQY2pXZVlVQzlEU2JYUjZzUDgyQVRUY0VqbEFNNXdPb1AwWXNvVFRTVkJKMFRsQy9GU2dZU25uT1owWlJiUFp4cHB1dTAzQUlBQ2FuVzljUHVSTE5CbTRMMzNQbzVDZGluUU5CR0FDUUwwemxxem0wdmZvL09sN3BLMGRLbWVqcnh4SlZqeDhjRk03RCtUZGNBaGxMbFVndmJqSm1mYUwxU1lNMTk4MDJRSDlHRDJiV2FNY3V0SDRWcVNTc09CN2lmT3NsS3lRRk85SHBLSDQ9LS1NOEFtRndwaGI4V2hSSlJnd0JsQ2ZRPT0=--ed3bc2403c2824751db6f8e562e827181d331c3b
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','CAP_APP_HOSTS','Wjc3V09ZR2FxOFFHYjlJUXZVMmtLemxjMERzVTI0KzVWTEh0VWE2ZnNoVUlVcXplNHZiMGRmc0J6eTgvbzFweitmZEhTd0o1UUZYMHNscVppMFl2d2cya1J3UUQ0KzMvQVY1TWRTdGJJZndCYjh1L3VKTHhQcFA3b2dHRkNKNi80RzdRa204eE9rVU9aMXlFakFSODY1WFp1SFcrR3FHYzlyN3JaSXg0Slc1dmhFaUN0ZGtGUWJ0ZmtsUkRNQ0FzeU1ia2x1empwUEdvTmhqYUc3UHpDK24vczFsVFpraWd1YVNjV091empTOXFSUTlUOXQrZlhwRDQwcmcwZXR4YzFjeVczc3doaEFOR1pBV0g1bktyZStITDJZenZMOXpSMkF5MHBUbzdtMCtzOC9keVdFc2IyZ1dKZWozcVVFM2pTYnRHckE2RDZUMVZaUXhaQ3ZuQStZeGUyOFZqb3JDYXpzS0F1bGRDdDRMVUp3aS8rTVdKcllSMmZQbm5qK3RIcUVvVVc5WTV6aEVuZGNQb2dnK3A1NDg3M0w5WnZaYzI4UGRwNTdOZENsa1NPbGFnOG9HU2dRSWxDN1ZGUGMwUUpIaGM5ckdlZXpuN0lpWnY3aEJPNWM5NktsN2pQY2pXZVlVQzlEU2JYUjZzUDgyQVRUY0VqbEFNNXdPb1AwWXNvVFRTVkJKMFRsQy9GU2dZU25uT1owWlJiUFp4cHB1dTAzQUlBQ2FuVzljUHVSTE5CbTRMMzNQbzVDZGluUU5CR0FDUUwwemxxem0wdmZvL09sN3BLMGRLbWVqcnh4SlZqeDhjRk03RCtUZGNBaGxMbFVndmJqSm1mYUwxU1lNMTk4MDJRSDlHRDJiV2FNY3V0SDRWcVNTc09CN2lmT3NsS3lRRk85SHBLSDQ9LS1NOEFtRndwaGI4V2hSSlJnd0JsQ2ZRPT0=--ed3bc2403c2824751db6f8e562e827181d331c3b',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APPLICATION_NAME
+DEPLOYER INT  VALUE: ab_test
+DEPLOYER PROD VALUE: ab_test
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : APPLICATION_NAME
+       QDEPLOY VALUE  : ab_test
+       DESC           : 
+       ENCRYPT        : QWo0bVd2YVpVbm9MZEVtMUxJQ05QelBLQlBrSTFKdG9PZ3VCUlU0c0VYRT0tLWNOdzEybyt5TkFvakRJMTA5cnlSMGc9PQ==--5d46a44345edb77df10be7e4f8b75ba43c0e88cc
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('APPLICATION_NAME',  'QWo0bVd2YVpVbm9MZEVtMUxJQ05QelBLQlBrSTFKdG9PZ3VCUlU0c0VYRT0tLWNOdzEybyt5TkFvakRJMTA5cnlSMGc9PQ==--5d46a44345edb77df10be7e4f8b75ba43c0e88cc', NOW(), NOW(), '')
+ab_test -   ab_test
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APACHE_HOME
+DEPLOYER INT  VALUE: /opt/apache/2.2.17
+DEPLOYER PROD VALUE: /opt/apache/2.2.17
+QDEPLOY VALUE:  /opt/apache/2.4.3
+/opt/apache/2.2.17 - /opt/apache/2.4.3
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : APACHE_HOME
+       QDEPLOY VALUE  : /opt/apache/2.2.17
+       DESC           : Apache Home
+       ENCRYPT        : OVpsQ2NQSFpURlBJcWhidUhPZEdwb0s4UHJCaVNZajQvbzErNkkzYWFmUT0tLWgwWjRVZmpwaUJsamFRTTQyZHIzdGc9PQ==--301f45fb51a92fff614d93bea239c4cc636a9ac9
+INSERT INTO tokens values(NULL,'Service','13','APACHE_HOME','OVpsQ2NQSFpURlBJcWhidUhPZEdwb0s4UHJCaVNZajQvbzErNkkzYWFmUT0tLWgwWjRVZmpwaUJsamFRTTQyZHIzdGc9PQ==--301f45fb51a92fff614d93bea239c4cc636a9ac9',NOW(),NOW(),'Apache Home')
+/opt/apache/2.2.17 - /opt/apache/2.2.17
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APACHE_LISTEN_PORT_HTTP
+DEPLOYER INT  VALUE: __ENV_ID__300
+DEPLOYER PROD VALUE: __ENV_ID__300
+QDEPLOY VALUE:  __ENV_ID__800
+__ENV_ID__300 - __ENV_ID__800
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : APACHE_LISTEN_PORT_HTTP
+       QDEPLOY VALUE  : __ENV_ID__300
+       DESC           : Apache Listen Port
+       ENCRYPT        : Wm5rQ2g5ZkxrY1l0aGY2Vnk5Y2xOSXE4dzNxRlhPdGRQdkJYa3hjVTVPUT0tLWZ6bDJFZklPUnoxSStPeHgxcDZxTnc9PQ==--a7f9fa7ed74ad795bd5bb037bee12d8c9655f946
+INSERT INTO tokens values(NULL,'Service','13','APACHE_LISTEN_PORT_HTTP','Wm5rQ2g5ZkxrY1l0aGY2Vnk5Y2xOSXE4dzNxRlhPdGRQdkJYa3hjVTVPUT0tLWZ6bDJFZklPUnoxSStPeHgxcDZxTnc9PQ==--a7f9fa7ed74ad795bd5bb037bee12d8c9655f946',NOW(),NOW(),'Apache Listen Port')
+__ENV_ID__300 - __ENV_ID__300
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : PARTNER_HOSTNAME
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__.newokl.com
+DEPLOYER PROD VALUE: ab_test.onekingslane.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : PARTNER_HOSTNAME
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__.newokl.com
+       DESC           : 
+       ENCRYPT        : bUFOSmVLTE04N3hrL3VHNnd0dW4vb0NuN3BOeTJGV0doS3EydldCZ3M1L0ZhY0ZKcGJWaWUzdlhQTTV2T3VDbC0tWS9uSm1TamljSFFGeW5QMjZ4ZkthUT09--471bf5b6b58feda402c697b8b18974de028ffce6
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('PARTNER_HOSTNAME',  'bUFOSmVLTE04N3hrL3VHNnd0dW4vb0NuN3BOeTJGV0doS3EydldCZ3M1L0ZhY0ZKcGJWaWUzdlhQTTV2T3VDbC0tWS9uSm1TamljSFFGeW5QMjZ4ZkthUT09--471bf5b6b58feda402c697b8b18974de028ffce6', NOW(), NOW(), '')
+ab_test-__ENV_NAME__.newokl.com -   ab_test.onekingslane.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : PARTNER_HOSTNAME
+       QDEPLOY VALUE  : ab_test.onekingslane.com
+       DESC           : 
+       ENCRYPT        : b2EwQU9pUGRXeDJsSVRPekFiWFR0bmJYTHRRWmV3MjdGWSs1WkhMei9vazNVZitiQklEdGdTK3FMMnYxMGczSi0tQzFQY2xZTCtLY2IzNHNoeXlhdm16Zz09--2a7c9f1cfa0e916a753533a09111cadd152158d4
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','PARTNER_HOSTNAME','b2EwQU9pUGRXeDJsSVRPekFiWFR0bmJYTHRRWmV3MjdGWSs1WkhMei9vazNVZitiQklEdGdTK3FMMnYxMGczSi0tQzFQY2xZTCtLY2IzNHNoeXlhdm16Zz09--2a7c9f1cfa0e916a753533a09111cadd152158d4',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APACHE_LISTEN_PORT_HTTPS
+DEPLOYER INT  VALUE: __ENV_ID__301
+DEPLOYER PROD VALUE: __ENV_ID__301
+QDEPLOY VALUE:  __ENV_ID__801
+__ENV_ID__301 - __ENV_ID__801
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : APACHE_LISTEN_PORT_HTTPS
+       QDEPLOY VALUE  : __ENV_ID__301
+       DESC           : 
+       ENCRYPT        : TGpPY0ZWdE5FMmNmVUpORmc5Vk9pS29NeGxZVUp1VnZxcFZ3a3FHUFhYRT0tLW1UU05BbkNKY3lyZnhpcGFRTzhhMGc9PQ==--6f4d20b0e825cf3272f7d0f2dfa033b1225f1822
+INSERT INTO tokens values(NULL,'Service','13','APACHE_LISTEN_PORT_HTTPS','TGpPY0ZWdE5FMmNmVUpORmc5Vk9pS29NeGxZVUp1VnZxcFZ3a3FHUFhYRT0tLW1UU05BbkNKY3lyZnhpcGFRTzhhMGc9PQ==--6f4d20b0e825cf3272f7d0f2dfa033b1225f1822',NOW(),NOW(),'')
+__ENV_ID__301 - __ENV_ID__301
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : CAP_CRON_HOSTS
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__-web01.newokl.com
+DEPLOYER PROD VALUE: king-prod-web01.newokl.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : CAP_CRON_HOSTS
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__-web01.newokl.com
+       DESC           : 
+       ENCRYPT        : bDBXMmtWalNZVEFMci9Nd2gvcnA1SmFDUEpNVUQzNzRzTUFJTk8zdGlWWHdmUDdqRldUUk9FQk9ST3hWQ1ZiTi0tQXpmbWFyaXpjbWtYMWYvZ3U2ODg1Zz09--fbee0bf4893770e2e25035b20c288b1c53395945
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('CAP_CRON_HOSTS',  'bDBXMmtWalNZVEFMci9Nd2gvcnA1SmFDUEpNVUQzNzRzTUFJTk8zdGlWWHdmUDdqRldUUk9FQk9ST3hWQ1ZiTi0tQXpmbWFyaXpjbWtYMWYvZ3U2ODg1Zz09--fbee0bf4893770e2e25035b20c288b1c53395945', NOW(), NOW(), '')
+ab_test-__ENV_NAME__-web01.newokl.com -   king-prod-web01.newokl.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : CAP_CRON_HOSTS
+       QDEPLOY VALUE  : king-prod-web01.newokl.com
+       DESC           : 
+       ENCRYPT        : YU5pMjNGVnJqNVBLTnN2blFQeXlLbkdDUVZFNlN2RHRaWjBWWjg1QzV3ZmNJKzBtM1NGWTI3bXlOWGk0T2lhbC0tOGI4UmZNbTNDeERGVGI3eHNuR2U4Zz09--07f3c86402d01cc128e13c9ebba58fdf55471c59
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','CAP_CRON_HOSTS','YU5pMjNGVnJqNVBLTnN2blFQeXlLbkdDUVZFNlN2RHRaWjBWWjg1QzV3ZmNJKzBtM1NGWTI3bXlOWGk0T2lhbC0tOGI4UmZNbTNDeERGVGI3eHNuR2U4Zz09--07f3c86402d01cc128e13c9ebba58fdf55471c59',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : NODE_HOME
+DEPLOYER INT  VALUE: /opt/node/0.4.8
+DEPLOYER PROD VALUE: /opt/node/0.4.8
+QDEPLOY VALUE:  /opt/node/0.6.10
+/opt/node/0.4.8 - /opt/node/0.6.10
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : NODE_HOME
+       QDEPLOY VALUE  : /opt/node/0.4.8
+       DESC           : 
+       ENCRYPT        : dkpvNlcwajZ0ZmV6SjAreUlDc3JCaXNsd2ptZ3Izd3J4c09sRmNobXNFYz0tLVRxZGRJc011N0JZYXlFa202bWRaVWc9PQ==--e8d88b1ff86c7d6ae83dadae18189cc676646d9e
+INSERT INTO tokens values(NULL,'Service','13','NODE_HOME','dkpvNlcwajZ0ZmV6SjAreUlDc3JCaXNsd2ptZ3Izd3J4c09sRmNobXNFYz0tLVRxZGRJc011N0JZYXlFa202bWRaVWc9PQ==--e8d88b1ff86c7d6ae83dadae18189cc676646d9e',NOW(),NOW(),'')
+/opt/node/0.4.8 - /opt/node/0.4.8
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_ROOT
+DEPLOYER INT  VALUE: /okl/ab_test/__ENV_NAME__/memcached
+DEPLOYER PROD VALUE: /okl/ab_test/__ENV_NAME__/memcached
+QDEPLOY VALUE:  /okl/__APP_NAME__/__ENV_NAME__/memcached
+/okl/ab_test/__ENV_NAME__/memcached - /okl/__APP_NAME__/__ENV_NAME__/memcached
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_ROOT
+       QDEPLOY VALUE  : /okl/ab_test/__ENV_NAME__/memcached
+       DESC           : 
+       ENCRYPT        : S3B4TFh4a1FzLys5NEtMZkZQYjdlQXNVQkZoYWZZaTlmNmFNakFIQk1sdXVoLzI1UWtDQnpiMmZDVWJYZXpNNy0tbjJzT3NIQktQUFR2UVVkRzcreGU1QT09--ea88163d69de959907a0f35f32e7d0653e1cd508
+INSERT INTO tokens values(NULL,'Service','13','MEMCACHED_ROOT','S3B4TFh4a1FzLys5NEtMZkZQYjdlQXNVQkZoYWZZaTlmNmFNakFIQk1sdXVoLzI1UWtDQnpiMmZDVWJYZXpNNy0tbjJzT3NIQktQUFR2UVVkRzcreGU1QT09--ea88163d69de959907a0f35f32e7d0653e1cd508',NOW(),NOW(),'')
+/okl/ab_test/__ENV_NAME__/memcached - /okl/ab_test/__ENV_NAME__/memcached
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_HOME
+DEPLOYER INT  VALUE: /opt/memcached/1.4.5
+DEPLOYER PROD VALUE: /opt/memcached/1.4.5
+QDEPLOY VALUE:  /opt/memcached/1.4.5
+/opt/memcached/1.4.5 - /opt/memcached/1.4.5
+/opt/memcached/1.4.5 - /opt/memcached/1.4.5
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_RUNAS
+DEPLOYER INT  VALUE: okluser
+DEPLOYER PROD VALUE: okluser
+QDEPLOY VALUE:  okluser
+okluser - okluser
+okluser - okluser
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_MEM_SIZE_SESSION
+DEPLOYER INT  VALUE: 64
+DEPLOYER PROD VALUE: 64
+QDEPLOY VALUE:  
+64 - 
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_MEM_SIZE_SESSION
+       QDEPLOY VALUE  : 64
+       DESC           : 
+       ENCRYPT        : R2pqNitNeDdiQUJwNjRPVFZtMCsxQT09LS12WXlDZURSQVY3N0krdmFRRDFNeTNBPT0=--77a9e5a4973ae55ac4b96e1ef9a9d8519ebbd349
+INSERT INTO tokens values(NULL,'Service','13','MEMCACHED_MEM_SIZE_SESSION','R2pqNitNeDdiQUJwNjRPVFZtMCsxQT09LS12WXlDZURSQVY3N0krdmFRRDFNeTNBPT0=--77a9e5a4973ae55ac4b96e1ef9a9d8519ebbd349',NOW(),NOW(),'')
+64 - 64
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_PORT_SESSION
+DEPLOYER INT  VALUE: __ENV_ID__110
+DEPLOYER PROD VALUE: __ENV_ID__110
+QDEPLOY VALUE:  
+__ENV_ID__110 - 
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_PORT_SESSION
+       QDEPLOY VALUE  : __ENV_ID__110
+       DESC           : 
+       ENCRYPT        : V093emZ2RWlEVzVRUjQyTDlQQVdhN3hCemhDRE9Ccks1WmdVUXR3YUE5cz0tLUh5NTJYbERhZkE1b2xUbDlNMlhjb0E9PQ==--d287deeebd37f0f3afc7bf103b366613fd04601e
+INSERT INTO tokens values(NULL,'Service','13','MEMCACHED_PORT_SESSION','V093emZ2RWlEVzVRUjQyTDlQQVdhN3hCemhDRE9Ccks1WmdVUXR3YUE5cz0tLUh5NTJYbERhZkE1b2xUbDlNMlhjb0E9PQ==--d287deeebd37f0f3afc7bf103b366613fd04601e',NOW(),NOW(),'')
+__ENV_ID__110 - __ENV_ID__110
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_SESSION_SERVERS
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__-web01.newokl.com:__MEMCACHED_PORT_SESSION__
+DEPLOYER PROD VALUE: king-prod-pweb01.newokl.com:__MEMCACHED_PORT_SESSION__ king-prod-pweb02.newokl.com:__MEMCACHED_PORT_SESSION__
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_SESSION_SERVERS
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__-web01.newokl.com:__MEMCACHED_PORT_SESSION__
+       DESC           : 
+       ENCRYPT        : RTk0MHpjaWVYQUwwdzJ0UDR4YkZ6VDJvSndEbFJCMndOQm44V0w5UXpML0x0L3lSMlFwK21VT29oSUUwMnF3OUZpQW5OMXBlb3JsSUl0Q0YyR05FOUg5M3l3NURYVDVlemxxMHp4ZVkxSjQ9LS1tMlRzSjZmUVNtVXFmRDJUSGNuT3RBPT0=--5bc31662b2b47176129ce2a68feb66d8aba75ece
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('MEMCACHED_SESSION_SERVERS',  'RTk0MHpjaWVYQUwwdzJ0UDR4YkZ6VDJvSndEbFJCMndOQm44V0w5UXpML0x0L3lSMlFwK21VT29oSUUwMnF3OUZpQW5OMXBlb3JsSUl0Q0YyR05FOUg5M3l3NURYVDVlemxxMHp4ZVkxSjQ9LS1tMlRzSjZmUVNtVXFmRDJUSGNuT3RBPT0=--5bc31662b2b47176129ce2a68feb66d8aba75ece', NOW(), NOW(), '')
+ab_test-__ENV_NAME__-web01.newokl.com:__MEMCACHED_PORT_SESSION__ -   king-prod-pweb01.newokl.com:__MEMCACHED_PORT_SESSION__ king-prod-pweb02.newokl.com:__MEMCACHED_PORT_SESSION__
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_SESSION_SERVERS
+       QDEPLOY VALUE  : king-prod-pweb01.newokl.com:__MEMCACHED_PORT_SESSION__ king-prod-pweb02.newokl.com:__MEMCACHED_PORT_SESSION__
+       DESC           : 
+       ENCRYPT        : RE0xOWNLOTV1M01mM3EzbjhoaGRGTTlKQkJJMjZHdHRRYjViTW5CVkR6T3VFelNCeDNtOXl3V3MwV05CNkVMV01oM1krK01LbVk5Y1FWbzdoVDlpNnlrQklZQitHSVF5a2dwSUJwUFBiUlVoZjZMckN4MTU5UDJvMUFqSHlpQnZxUU44VTgwd2Nzc1JFekRqb3VMcHB6OTJpSUovNTdJNkozNURTako4ejZJPS0tN1lmZllDWk4yWjBnQi9ZWXFGOFdGUT09--a2b52488fd2381c4c00040241ac16ce1b835e628
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','MEMCACHED_SESSION_SERVERS','RE0xOWNLOTV1M01mM3EzbjhoaGRGTTlKQkJJMjZHdHRRYjViTW5CVkR6T3VFelNCeDNtOXl3V3MwV05CNkVMV01oM1krK01LbVk5Y1FWbzdoVDlpNnlrQklZQitHSVF5a2dwSUJwUFBiUlVoZjZMckN4MTU5UDJvMUFqSHlpQnZxUU44VTgwd2Nzc1JFekRqb3VMcHB6OTJpSUovNTdJNkozNURTako4ejZJPS0tN1lmZllDWk4yWjBnQi9ZWXFGOFdGUT09--a2b52488fd2381c4c00040241ac16ce1b835e628',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APACHE_ROOT
+DEPLOYER INT  VALUE: /okl/ab_test/__ENV_NAME__/apache
+DEPLOYER PROD VALUE: /okl/ab_test/__ENV_NAME__/apache
+QDEPLOY VALUE:  __SERVICE_ROOT__/apache
+/okl/ab_test/__ENV_NAME__/apache - __SERVICE_ROOT__/apache
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : APACHE_ROOT
+       QDEPLOY VALUE  : /okl/ab_test/__ENV_NAME__/apache
+       DESC           : 
+       ENCRYPT        : SFZBaVVjNVFHZVFyREI1QWE1UU1TM1o5M1dKcCtQaE5CK3RQcTZEV21FMmp0MXVhNUVvSEF3NUpETDJVYmV6ei0teE5JWmhNbGtCdGE5MkdGVElOWnlKUT09--1f326dbca3a11aaabbaa56f2679c8aaf7fd67ac0
+INSERT INTO tokens values(NULL,'Service','13','APACHE_ROOT','SFZBaVVjNVFHZVFyREI1QWE1UU1TM1o5M1dKcCtQaE5CK3RQcTZEV21FMmp0MXVhNUVvSEF3NUpETDJVYmV6ei0teE5JWmhNbGtCdGE5MkdGVElOWnlKUT09--1f326dbca3a11aaabbaa56f2679c8aaf7fd67ac0',NOW(),NOW(),'')
+/okl/ab_test/__ENV_NAME__/apache - /okl/ab_test/__ENV_NAME__/apache
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : APACHE_RUNAS
+DEPLOYER INT  VALUE: okluser
+DEPLOYER PROD VALUE: okluser
+QDEPLOY VALUE:  __OKL_USER__
+okluser - __OKL_USER__
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : APACHE_RUNAS
+       QDEPLOY VALUE  : okluser
+       DESC           : 
+       ENCRYPT        : bStpTnpHZ2VjOGJkeW4yZE42b01EbzFmS1RVM2M0L2RicjdsV2NPdWtSTT0tLVBXbm1RZFhJZ2drTnRacnU3L252a3c9PQ==--af6482c32153442891ba59721eebbde4e6ce30c7
+INSERT INTO tokens values(NULL,'Service','13','APACHE_RUNAS','bStpTnpHZ2VjOGJkeW4yZE42b01EbzFmS1RVM2M0L2RicjdsV2NPdWtSTT0tLVBXbm1RZFhJZ2drTnRacnU3L252a3c9PQ==--af6482c32153442891ba59721eebbde4e6ce30c7',NOW(),NOW(),'')
+okluser - okluser
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_HOME
+DEPLOYER INT  VALUE: /opt/redis/2.2.8
+DEPLOYER PROD VALUE: /opt/redis/2.2.8
+QDEPLOY VALUE:  /opt/redis/2.2.8
+/opt/redis/2.2.8 - /opt/redis/2.2.8
+/opt/redis/2.2.8 - /opt/redis/2.2.8
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_RUNAS
+DEPLOYER INT  VALUE: okluser
+DEPLOYER PROD VALUE: okluser
+QDEPLOY VALUE:  okluser
+okluser - okluser
+okluser - okluser
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_ROOT
+DEPLOYER INT  VALUE: /okl/ab_test/__ENV_NAME__/redis
+DEPLOYER PROD VALUE: /okl/ab_test/__ENV_NAME__/redis
+QDEPLOY VALUE:  /okl/__APP_NAME__/__ENV_NAME__/redis
+/okl/ab_test/__ENV_NAME__/redis - /okl/__APP_NAME__/__ENV_NAME__/redis
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_ROOT
+       QDEPLOY VALUE  : /okl/ab_test/__ENV_NAME__/redis
+       DESC           : REDIS SERVER: was /okl/ab_test/__ENV_NAME__/redis but probably not needed now
+       ENCRYPT        : T3Z3M3hqSC8rRVo0b3o4VHBvdldDREtjV1dRVGZWZmhLVVp3UFlEVGVZUGh1L0dqbG1ZRzZETkVRRURMK1FELy0tbDJYTkJLUTVPUm1xTlNPczRocVZ2Zz09--d99e7c0eeb1cea2f2a69f842f8e4ebb33dfcfce1
+INSERT INTO tokens values(NULL,'Service','13','REDIS_ROOT','T3Z3M3hqSC8rRVo0b3o4VHBvdldDREtjV1dRVGZWZmhLVVp3UFlEVGVZUGh1L0dqbG1ZRzZETkVRRURMK1FELy0tbDJYTkJLUTVPUm1xTlNPczRocVZ2Zz09--d99e7c0eeb1cea2f2a69f842f8e4ebb33dfcfce1',NOW(),NOW(),'REDIS SERVER: was /okl/ab_test/__ENV_NAME__/redis but probably not needed now')
+/okl/ab_test/__ENV_NAME__/redis - /okl/ab_test/__ENV_NAME__/redis
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_DATA
+DEPLOYER INT  VALUE: /okl/ab_test/__ENV_NAME__/redis/data
+DEPLOYER PROD VALUE: /okl/ab_test/__ENV_NAME__/redis/data
+QDEPLOY VALUE:  __REDIS_ROOT__/data
+/okl/ab_test/__ENV_NAME__/redis/data - __REDIS_ROOT__/data
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_DATA
+       QDEPLOY VALUE  : /okl/ab_test/__ENV_NAME__/redis/data
+       DESC           : REDIS SERVER: was /okl/ab_test/__ENV_NAME__/redis/data but probably not needed now
+       ENCRYPT        : WW55N1F4QmNUbjI4N1NJeERpbGpLV2tjdWxVcmpyV2RReTd2TXNNbGRJZm1rbWpHWkpEeWRMcTBNMm54MStITS0tc2I1VFJwdTFxakpQdzZrRDl0OHlIQT09--25134e89a8d4bffa6241385aa56dbc5f7f211e9a
+INSERT INTO tokens values(NULL,'Service','13','REDIS_DATA','WW55N1F4QmNUbjI4N1NJeERpbGpLV2tjdWxVcmpyV2RReTd2TXNNbGRJZm1rbWpHWkpEeWRMcTBNMm54MStITS0tc2I1VFJwdTFxakpQdzZrRDl0OHlIQT09--25134e89a8d4bffa6241385aa56dbc5f7f211e9a',NOW(),NOW(),'REDIS SERVER: was /okl/ab_test/__ENV_NAME__/redis/data but probably not needed now')
+/okl/ab_test/__ENV_NAME__/redis/data - /okl/ab_test/__ENV_NAME__/redis/data
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_PORT
+DEPLOYER INT  VALUE: __ENV_ID__354
+DEPLOYER PROD VALUE: __ENV_ID__351
+QDEPLOY VALUE:  __ENV_ID____APP_ID__50
+__ENV_ID__354 - __ENV_ID____APP_ID__50
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_PORT
+       QDEPLOY VALUE  : __ENV_ID__354
+       DESC           : REDIS CLIENT: 
+       ENCRYPT        : ZGtlK3kvV0FwRWdscXVJZmpYdXdxTit6ZUczWk02VlB5RzJyRHd1OEZJWT0tLW1EUklwYmcwbnRnN2lXOGl2SnpJT1E9PQ==--1949258b7de4f9265f28101e2aa7520bc9046d63
+INSERT INTO tokens values(NULL,'Service','13','REDIS_PORT','ZGtlK3kvV0FwRWdscXVJZmpYdXdxTit6ZUczWk02VlB5RzJyRHd1OEZJWT0tLW1EUklwYmcwbnRnN2lXOGl2SnpJT1E9PQ==--1949258b7de4f9265f28101e2aa7520bc9046d63',NOW(),NOW(),'REDIS CLIENT: ')
+__ENV_ID__351 - __ENV_ID__354
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_PORT
+       QDEPLOY VALUE  : __ENV_ID__351
+       DESC           : REDIS CLIENT: 
+       ENCRYPT        : cG1EcDJJdjhmUyt0Nzk0ZFh4VWU2RFpnL1VaMDVVSDkrNDd1QWtCU0ZNUT0tLUJ2SWhTWVhFWUNXdlVEMjJScFlzQ0E9PQ==--8ecf7fc7eca3a100fa2f29c92aadbc1cf3f6dadf
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','REDIS_PORT','cG1EcDJJdjhmUyt0Nzk0ZFh4VWU2RFpnL1VaMDVVSDkrNDd1QWtCU0ZNUT0tLUJ2SWhTWVhFWUNXdlVEMjJScFlzQ0E9PQ==--8ecf7fc7eca3a100fa2f29c92aadbc1cf3f6dadf',NOW(),NOW(),'REDIS CLIENT: ')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_HOST
+DEPLOYER INT  VALUE: localhost
+DEPLOYER PROD VALUE: localhost
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_HOST
+       QDEPLOY VALUE  : localhost
+       DESC           : REDIS CLIENT: 
+       ENCRYPT        : OENwT3J3a3hQZytYbXlCRXVEOHNzcG5DUWZtZks2ZFB5d3NsTHR6d3JvMD0tLWJSc3NVTEZLQnVpVTBwOXZSVlZhM1E9PQ==--42b0f6cffc1d6b9ad8a7c78180cac78e177dcb74
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('REDIS_HOST',  'OENwT3J3a3hQZytYbXlCRXVEOHNzcG5DUWZtZks2ZFB5d3NsTHR6d3JvMD0tLWJSc3NVTEZLQnVpVTBwOXZSVlZhM1E9PQ==--42b0f6cffc1d6b9ad8a7c78180cac78e177dcb74', NOW(), NOW(), 'REDIS CLIENT: ')
+localhost -   localhost
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : VENDOR_DB_NAME
+DEPLOYER INT  VALUE: king_vendor
+DEPLOYER PROD VALUE: king_vendor
+QDEPLOY VALUE:  king_vendor
+king_vendor - king_vendor
+king_vendor - king_vendor
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : RESQUE_HTTP_USER
+DEPLOYER INT  VALUE: __ENV_NAME__
+DEPLOYER PROD VALUE: __ENV_NAME__
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : RESQUE_HTTP_USER
+       QDEPLOY VALUE  : __ENV_NAME__
+       DESC           : 
+       ENCRYPT        : ZEdSN3lMRWdyeUxCOSs2R05KdmNxOGFCVm5PUVB5QTI2VlJSVnZYR1FUaz0tLTF6bzN3VjBPais3RkNHNWdNdm9kNGc9PQ==--fd0324b41a8979d549f83691990fe0941f6cf806
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('RESQUE_HTTP_USER',  'ZEdSN3lMRWdyeUxCOSs2R05KdmNxOGFCVm5PUVB5QTI2VlJSVnZYR1FUaz0tLTF6bzN3VjBPais3RkNHNWdNdm9kNGc9PQ==--fd0324b41a8979d549f83691990fe0941f6cf806', NOW(), NOW(), '')
+__ENV_NAME__ -   __ENV_NAME__
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : RESQUE_HTTP_PASS
+DEPLOYER INT  VALUE: __ENV_NAME__
+DEPLOYER PROD VALUE: __ENV_NAME__
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : RESQUE_HTTP_PASS
+       QDEPLOY VALUE  : __ENV_NAME__
+       DESC           : 
+       ENCRYPT        : RlAyNUE5Y1JVUzhCNHMxcDlFajV1RXhWQ1AraDFCSGNPbS94VVp4T0U5Zz0tLWtBNGN5TzRwSUxFcCtTV2xEa3E3bWc9PQ==--09be4f4883f6f39bb039a0bf392e02fea7335a2c
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('RESQUE_HTTP_PASS',  'RlAyNUE5Y1JVUzhCNHMxcDlFajV1RXhWQ1AraDFCSGNPbS94VVp4T0U5Zz0tLWtBNGN5TzRwSUxFcCtTV2xEa3E3bWc9PQ==--09be4f4883f6f39bb039a0bf392e02fea7335a2c', NOW(), NOW(), '')
+__ENV_NAME__ -   __ENV_NAME__
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : AX_DOWNLOAD_FILES_PATH
+DEPLOYER INT  VALUE: /home/envista/vendor_portal/__ENV_NAME__/
+DEPLOYER PROD VALUE: /home/envista/vendor_portal/__ENV_NAME__/
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : AX_DOWNLOAD_FILES_PATH
+       QDEPLOY VALUE  : /home/envista/vendor_portal/__ENV_NAME__/
+       DESC           : 
+       ENCRYPT        : NWd4Q0ZNTlFjb3NVbytvS0NjMGNySjhjZGNqTjIxQ2xROC95TkMwMlJWdG9GZkZ6RC9naG9ockFybzJocStOY3piZDNvaVZwazB4SUFBT3lBTUpFd0E9PS0tem8zdEVqZFRwamhCUmJzOUorUzVEZz09--934122c8503fb30f155fb8b4eb2d1d1d6dca08ad
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('AX_DOWNLOAD_FILES_PATH',  'NWd4Q0ZNTlFjb3NVbytvS0NjMGNySjhjZGNqTjIxQ2xROC95TkMwMlJWdG9GZkZ6RC9naG9ockFybzJocStOY3piZDNvaVZwazB4SUFBT3lBTUpFd0E9PS0tem8zdEVqZFRwamhCUmJzOUorUzVEZz09--934122c8503fb30f155fb8b4eb2d1d1d6dca08ad', NOW(), NOW(), '')
+/home/envista/vendor_portal/__ENV_NAME__/ -   /home/envista/vendor_portal/__ENV_NAME__/
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : CAP_RESQUE_HOSTS
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__-web01.newokl.com
+DEPLOYER PROD VALUE: king-prod-web01.newokl.com king-prod-web02.newokl.com king-prod-web03.newokl.com king-prod-web04.newokl.com king-prod-web05.newokl.com king-prod-web06.newokl.com king-prod-web07.newokl.com king-prod-web08.newokl.com king-prod-web09.newokl.com king-prod-web10.newokl.com king-prod-web11.newokl.com king-prod-web12.newokl.com king-prod-web13.newokl.com king-prod-web14.newokl.com king-prod-web15.newokl.com king-prod-web16.newokl.com king-prod-web17.newokl.com king-prod-web18.newokl.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : CAP_RESQUE_HOSTS
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__-web01.newokl.com
+       DESC           : 
+       ENCRYPT        : Y2k1dXFJRDJZOTZpY2YrVzBJeG40cXZFRG5lQ2lmd2JwRGRnTmxwSnk0ZkRQeVV4M1pybjVhVXpGV084bFVrZy0tVkVBVUZ3Ym9qR3pkVlBHT3FMc2RmZz09--670294cc0148193c9d975c479b7647dbad192207
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('CAP_RESQUE_HOSTS',  'Y2k1dXFJRDJZOTZpY2YrVzBJeG40cXZFRG5lQ2lmd2JwRGRnTmxwSnk0ZkRQeVV4M1pybjVhVXpGV084bFVrZy0tVkVBVUZ3Ym9qR3pkVlBHT3FMc2RmZz09--670294cc0148193c9d975c479b7647dbad192207', NOW(), NOW(), '')
+ab_test-__ENV_NAME__-web01.newokl.com -   king-prod-web01.newokl.com king-prod-web02.newokl.com king-prod-web03.newokl.com king-prod-web04.newokl.com king-prod-web05.newokl.com king-prod-web06.newokl.com king-prod-web07.newokl.com king-prod-web08.newokl.com king-prod-web09.newokl.com king-prod-web10.newokl.com king-prod-web11.newokl.com king-prod-web12.newokl.com king-prod-web13.newokl.com king-prod-web14.newokl.com king-prod-web15.newokl.com king-prod-web16.newokl.com king-prod-web17.newokl.com king-prod-web18.newokl.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : CAP_RESQUE_HOSTS
+       QDEPLOY VALUE  : king-prod-web01.newokl.com king-prod-web02.newokl.com king-prod-web03.newokl.com king-prod-web04.newokl.com king-prod-web05.newokl.com king-prod-web06.newokl.com king-prod-web07.newokl.com king-prod-web08.newokl.com king-prod-web09.newokl.com king-prod-web10.newokl.com king-prod-web11.newokl.com king-prod-web12.newokl.com king-prod-web13.newokl.com king-prod-web14.newokl.com king-prod-web15.newokl.com king-prod-web16.newokl.com king-prod-web17.newokl.com king-prod-web18.newokl.com
+       DESC           : 
+       ENCRYPT        : UDloODZYRHhYdEI3RnlRY0Z0MStUU3JFWU01Q2szUXJ4Y1h2ejRIKzZXVmtoWWowcC9BWHZ1UGVuNlR4K2RhQm54OUtVY0VQeDFYbUNyZEQrcEVhRDdRcEx2dm9Nc1dWWE5XUEhNNE5LdFoyalRndjRmeDdScVUxUXBqQ2NONGhOL1UxMEV5aGt5WCtqQWRCWDRXYmRnd1lvQi9xQXBsZUErcGJLc015eVVwdDhEWUlFSDBsMk45U0VBVXE5ZzRvM0UvbjUyUm9YSUhhNXg2V1Z6UkoxRUt1T0VwZEJxR1R3eWp2OHdoRXlHUzM3bC92UlA1T0h6UWVSTGJEQS82Rm81cVBTY09obit5ZWtMVTdPcmxIRG0wUlIxOTBaQ3hPTU1rYUM3L0pQNllyMWZ6QWZWbEU0VEhuRllVZXlIOUU1Q0xHVDZTOHlYTzBkTFZzUXJZTmFxdlg4REpyTzBHdEZXVkxGSUM1VVdmcWVGK0F4eU54T0kxTGpsZ09VS0RtVGp6RkMvQTkyTmxJUjJ1ZXpXTXNYRWw5Q3Z6bCtCd2hwL1lvNVg3a291L2lBSjhIeTA1ZHFIcHVNdWFGNmF0SEgrYXpHVWRoM3F2eFVVbWJQbDd3MUhDOFFWdGRkakVOUXl0SnVBYzl5T05GM0UvcDFLbzVtUldnc1Vtc3gwRDZ5TXlIUTc3OTJVNVA1M0VucU9XckVwbGpnOEFKMUY0NmhlWkNZRGpWeHpTeXlvai9GK0tpT3BGYXdkWUMrcnIwWTZrc29OR3RwdTRJUFNtVERPTDhtSXM5NEtJQUF4WktrWUNTM0l6am5LeldrSytLRFkyS3lPZENlcndDMnE1TExxQUJwd1p3YmNYREVOUnBrT2Z6N2ltaExpQ0VNYlU5MDNLeEM2L2ZkSDA9LS1CaXVGcDBnbHlWMG5oQTZxTXNnVVZBPT0=--6804f8c80f1e3e5ac6189534c24675dd27225e84
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','CAP_RESQUE_HOSTS','UDloODZYRHhYdEI3RnlRY0Z0MStUU3JFWU01Q2szUXJ4Y1h2ejRIKzZXVmtoWWowcC9BWHZ1UGVuNlR4K2RhQm54OUtVY0VQeDFYbUNyZEQrcEVhRDdRcEx2dm9Nc1dWWE5XUEhNNE5LdFoyalRndjRmeDdScVUxUXBqQ2NONGhOL1UxMEV5aGt5WCtqQWRCWDRXYmRnd1lvQi9xQXBsZUErcGJLc015eVVwdDhEWUlFSDBsMk45U0VBVXE5ZzRvM0UvbjUyUm9YSUhhNXg2V1Z6UkoxRUt1T0VwZEJxR1R3eWp2OHdoRXlHUzM3bC92UlA1T0h6UWVSTGJEQS82Rm81cVBTY09obit5ZWtMVTdPcmxIRG0wUlIxOTBaQ3hPTU1rYUM3L0pQNllyMWZ6QWZWbEU0VEhuRllVZXlIOUU1Q0xHVDZTOHlYTzBkTFZzUXJZTmFxdlg4REpyTzBHdEZXVkxGSUM1VVdmcWVGK0F4eU54T0kxTGpsZ09VS0RtVGp6RkMvQTkyTmxJUjJ1ZXpXTXNYRWw5Q3Z6bCtCd2hwL1lvNVg3a291L2lBSjhIeTA1ZHFIcHVNdWFGNmF0SEgrYXpHVWRoM3F2eFVVbWJQbDd3MUhDOFFWdGRkakVOUXl0SnVBYzl5T05GM0UvcDFLbzVtUldnc1Vtc3gwRDZ5TXlIUTc3OTJVNVA1M0VucU9XckVwbGpnOEFKMUY0NmhlWkNZRGpWeHpTeXlvai9GK0tpT3BGYXdkWUMrcnIwWTZrc29OR3RwdTRJUFNtVERPTDhtSXM5NEtJQUF4WktrWUNTM0l6am5LeldrSytLRFkyS3lPZENlcndDMnE1TExxQUJwd1p3YmNYREVOUnBrT2Z6N2ltaExpQ0VNYlU5MDNLeEM2L2ZkSDA9LS1CaXVGcDBnbHlWMG5oQTZxTXNnVVZBPT0=--6804f8c80f1e3e5ac6189534c24675dd27225e84',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : RESQUE_WORKER_COUNT
+DEPLOYER INT  VALUE: 5
+DEPLOYER PROD VALUE: 5
+QDEPLOY VALUE:  5
+5 - 5
+5 - 5
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : UPLOADS_DIR
+DEPLOYER INT  VALUE: /home/share/okl/ab_test/__ENV_NAME__/
+DEPLOYER PROD VALUE: /home/share/okl/partner_portal/__ENV_NAME__/partner_shipment_uploads
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : UPLOADS_DIR
+       QDEPLOY VALUE  : /home/share/okl/ab_test/__ENV_NAME__/
+       DESC           : 
+       ENCRYPT        : dW44Yjc2U3llYWFwY1pzRE5rL0NXZCtkUTlKalFwczFOY2RxMFUzUytBb200elVyQVJ5YVM1QW5LL0tHZVNFUi0tbUVIckRZcnFpNEt3aUdwcXFZOVFwQT09--ec711f3b547a28e027c5740589336467ec3d4377
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('UPLOADS_DIR',  'dW44Yjc2U3llYWFwY1pzRE5rL0NXZCtkUTlKalFwczFOY2RxMFUzUytBb200elVyQVJ5YVM1QW5LL0tHZVNFUi0tbUVIckRZcnFpNEt3aUdwcXFZOVFwQT09--ec711f3b547a28e027c5740589336467ec3d4377', NOW(), NOW(), '')
+/home/share/okl/ab_test/__ENV_NAME__/ -   /home/share/okl/partner_portal/__ENV_NAME__/partner_shipment_uploads
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : UPLOADS_DIR
+       QDEPLOY VALUE  : /home/share/okl/partner_portal/__ENV_NAME__/partner_shipment_uploads
+       DESC           : 
+       ENCRYPT        : dm9wVWxzd0FDeVJ1L1A3aEgwVm9nVlB4VXFqdWxPdG1MYm03a1RwdXlPNUUzc1c0QmRKa2ZESjNtdWxKbE5uWnZMdkxKdC9JU2FJejZZLzZKK0lIc3ZFeTd5SGNqRDk1cVlVTXFMMlhnTkk9LS1zbTgreTFVUmFsNlBpQmxMMFZ1QVFBPT0=--823f3c832681f84e891afd07d18bd91b38808321
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','UPLOADS_DIR','dm9wVWxzd0FDeVJ1L1A3aEgwVm9nVlB4VXFqdWxPdG1MYm03a1RwdXlPNUUzc1c0QmRKa2ZESjNtdWxKbE5uWnZMdkxKdC9JU2FJejZZLzZKK0lIc3ZFeTd5SGNqRDk1cVlVTXFMMlhnTkk9LS1zbTgreTFVUmFsNlBpQmxMMFZ1QVFBPT0=--823f3c832681f84e891afd07d18bd91b38808321',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : AB_TEST_SERVICE_ENABLE
+DEPLOYER INT  VALUE: true
+DEPLOYER PROD VALUE: true
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : AB_TEST_SERVICE_ENABLE
+       QDEPLOY VALUE  : true
+       DESC           : This token does not belong here.
+       ENCRYPT        : cU96Rlp1SW5lenluUi9LVlB0RHB0dz09LS1DZFVHd0lDT2NHZ1VWbnFpQ2Q3ekhBPT0=--4d3b80a4151affa06b475c667f5a47beadfde56b
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('AB_TEST_SERVICE_ENABLE',  'cU96Rlp1SW5lenluUi9LVlB0RHB0dz09LS1DZFVHd0lDT2NHZ1VWbnFpQ2Q3ekhBPT0=--4d3b80a4151affa06b475c667f5a47beadfde56b', NOW(), NOW(), 'This token does not belong here.')
+true -   true
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : CAP_RESQUE_SCHEDULE_HOST
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__-web01.newokl.com
+DEPLOYER PROD VALUE: king-prod-web01.newokl.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : CAP_RESQUE_SCHEDULE_HOST
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__-web01.newokl.com
+       DESC           : 
+       ENCRYPT        : VHR6ekVzNVkvZDZ3bWRKbElPMVNvWitpNGF1RHhnd2MzeFN0c2pWc01zajdPL1IvQ0VpTFgxU0RDK1IrWVlPUy0tUGtrNTNxeTdTS01hcGsxMWhldDYrZz09--5168f730c564b3b8de243dca9068632d5ce50447
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('CAP_RESQUE_SCHEDULE_HOST',  'VHR6ekVzNVkvZDZ3bWRKbElPMVNvWitpNGF1RHhnd2MzeFN0c2pWc01zajdPL1IvQ0VpTFgxU0RDK1IrWVlPUy0tUGtrNTNxeTdTS01hcGsxMWhldDYrZz09--5168f730c564b3b8de243dca9068632d5ce50447', NOW(), NOW(), '')
+ab_test-__ENV_NAME__-web01.newokl.com -   king-prod-web01.newokl.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : CAP_RESQUE_SCHEDULE_HOST
+       QDEPLOY VALUE  : king-prod-web01.newokl.com
+       DESC           : 
+       ENCRYPT        : Sm1QdVpqMWRTTzhjVXZhcDdkRkhFN2Q0MzBkVlNEL2NERmJiSU8wZkxSbVNKenB0UnZuTXBJN2VVclozYkRvZi0tUkRYWWtaSXk3cDgva0hpV3hyYWpqQT09--d55476750cd0be9bb95de722c26e1787d0cb1c66
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','CAP_RESQUE_SCHEDULE_HOST','Sm1QdVpqMWRTTzhjVXZhcDdkRkhFN2Q0MzBkVlNEL2NERmJiSU8wZkxSbVNKenB0UnZuTXBJN2VVclozYkRvZi0tUkRYWWtaSXk3cDgva0hpV3hyYWpqQT09--d55476750cd0be9bb95de722c26e1787d0cb1c66',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : DEFAULT_VAM_USERNAME
+DEPLOYER INT  VALUE: vams
+DEPLOYER PROD VALUE: vams
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : DEFAULT_VAM_USERNAME
+       QDEPLOY VALUE  : vams
+       DESC           : 
+       ENCRYPT        : YjhCZlc0N2RnZ3d4NFQyc0hDdlFJQT09LS03UUVmYkhmU3ZNRHAvM21SM0U1azVRPT0=--7118eab0a6a65117b43305fd2f63b8659e5f73c9
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('DEFAULT_VAM_USERNAME',  'YjhCZlc0N2RnZ3d4NFQyc0hDdlFJQT09LS03UUVmYkhmU3ZNRHAvM21SM0U1azVRPT0=--7118eab0a6a65117b43305fd2f63b8659e5f73c9', NOW(), NOW(), '')
+vams -   vams
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : OKL_PARTNER_PORTAL_HOST
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__.newokl.com
+DEPLOYER PROD VALUE: ab_test.onekingslane.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : OKL_PARTNER_PORTAL_HOST
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__.newokl.com
+       DESC           : Front end domain name for partner portal service
+       ENCRYPT        : K3RRS2UzQWo0QSt5ZE1SYWJua3RKUUM0VnB3eTZxNG5vWEtnOEVWc1A3MkUzNGdwVGFlWHYvSTcvMVhGM0ZIQy0tMUZDakVtTmZnQXQ1cHRVN0E3ZFJIUT09--2466c757c21962c237beb0df32cf49f932d103f2
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('OKL_PARTNER_PORTAL_HOST',  'K3RRS2UzQWo0QSt5ZE1SYWJua3RKUUM0VnB3eTZxNG5vWEtnOEVWc1A3MkUzNGdwVGFlWHYvSTcvMVhGM0ZIQy0tMUZDakVtTmZnQXQ1cHRVN0E3ZFJIUT09--2466c757c21962c237beb0df32cf49f932d103f2', NOW(), NOW(), 'Front end domain name for partner portal service')
+ab_test-__ENV_NAME__.newokl.com -   ab_test.onekingslane.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : OKL_PARTNER_PORTAL_HOST
+       QDEPLOY VALUE  : ab_test.onekingslane.com
+       DESC           : Front end domain name for partner portal service
+       ENCRYPT        : RTNqcmluY2h4U2EvZG13M2l5VXB0Sll5WmVicEVRY3FFU3V3dkJSc2N1dnpYSHcyT3FoSFQ1MXZHRGdtN1FyNi0tRXc0UEMvS2w5ejVpQVFnYThaNkJGZz09--e4d5ff8584a93ff443c9e3fc965635a74712d2f7
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','OKL_PARTNER_PORTAL_HOST','RTNqcmluY2h4U2EvZG13M2l5VXB0Sll5WmVicEVRY3FFU3V3dkJSc2N1dnpYSHcyT3FoSFQ1MXZHRGdtN1FyNi0tRXc0UEMvS2w5ejVpQVFnYThaNkJGZz09--e4d5ff8584a93ff443c9e3fc965635a74712d2f7',NOW(),NOW(),'Front end domain name for partner portal service')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : ENV_SETTING
+DEPLOYER INT  VALUE: production
+DEPLOYER PROD VALUE: production
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : ENV_SETTING
+       QDEPLOY VALUE  : production
+       DESC           : This token sets RAIL_ENV, for pm and prod=production, int=development
+       ENCRYPT        : bzF3eUZIWGE2Zm5GMkQxdDhMRFJybFFiUGpoZU9NOGVtV0s3ZWFiK1lwZz0tLTBuNzZ3WUozeDFneXJaMmFDQmswQnc9PQ==--fbc550d21e53f3461d4645751bd12951b0ab4746
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('ENV_SETTING',  'bzF3eUZIWGE2Zm5GMkQxdDhMRFJybFFiUGpoZU9NOGVtV0s3ZWFiK1lwZz0tLTBuNzZ3WUozeDFneXJaMmFDQmswQnc9PQ==--fbc550d21e53f3461d4645751bd12951b0ab4746', NOW(), NOW(), 'This token sets RAIL_ENV, for pm and prod=production, int=development')
+production -   production
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : EXCEPTION_NOTIFICATIONS_EMAIL
+DEPLOYER INT  VALUE: pptest@onekingslane.com
+DEPLOYER PROD VALUE: pp_prod_error@onekingslane.com
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : EXCEPTION_NOTIFICATIONS_EMAIL
+       QDEPLOY VALUE  : pptest@onekingslane.com
+       DESC           : 
+       ENCRYPT        : ME1ocGlCOFc2ZEk3YTNGZWZ3RklQV0VhbGJ4UDJja2podnlJOTVIZytSV053MzZ4VlJLNnBvQjlMTGh0bUJXMS0tV3F1REVjTGFqcnc4V3NRNkpTeXVQdz09--f82610d4609ad4666c44ab8d6d76a026c80eac2b
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('EXCEPTION_NOTIFICATIONS_EMAIL',  'ME1ocGlCOFc2ZEk3YTNGZWZ3RklQV0VhbGJ4UDJja2podnlJOTVIZytSV053MzZ4VlJLNnBvQjlMTGh0bUJXMS0tV3F1REVjTGFqcnc4V3NRNkpTeXVQdz09--f82610d4609ad4666c44ab8d6d76a026c80eac2b', NOW(), NOW(), '')
+pptest@onekingslane.com -   pp_prod_error@onekingslane.com
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : EXCEPTION_NOTIFICATIONS_EMAIL
+       QDEPLOY VALUE  : pp_prod_error@onekingslane.com
+       DESC           : 
+       ENCRYPT        : WEVxU2pkN0VrYVhtdEViczBBbDFCeDVEY2pvdC9tWGVSWVpNQ2xROCsrOEl4SGZoK21iOExVVWV0VnRCM05keC0tN2xEbzlaMk5EM29GNzZ2T013cXlxQT09--10ddba8a0fac9e4db1776cd46d0325f882007f45
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','EXCEPTION_NOTIFICATIONS_EMAIL','WEVxU2pkN0VrYVhtdEViczBBbDFCeDVEY2pvdC9tWGVSWVpNQ2xROCsrOEl4SGZoK21iOExVVWV0VnRCM05keC0tN2xEbzlaMk5EM29GNzZ2T013cXlxQT09--10ddba8a0fac9e4db1776cd46d0325f882007f45',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : ERP_SOAP_USER
+DEPLOYER INT  VALUE: oklaxstf
+DEPLOYER PROD VALUE: oklaxstfprod
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : ERP_SOAP_USER
+       QDEPLOY VALUE  : oklaxstf
+       DESC           : 
+       ENCRYPT        : bVd5VWJoYkFheEFoMWpMVm0wdytyaUVPZFBhS2tKeWdEREJVZlVqenFicz0tLUMrdmVmbWZxYzlyRlpaallEdGZzVnc9PQ==--5fa5d1929a4b152f0bb4390662d8428d2f16a963
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('ERP_SOAP_USER',  'bVd5VWJoYkFheEFoMWpMVm0wdytyaUVPZFBhS2tKeWdEREJVZlVqenFicz0tLUMrdmVmbWZxYzlyRlpaallEdGZzVnc9PQ==--5fa5d1929a4b152f0bb4390662d8428d2f16a963', NOW(), NOW(), '')
+oklaxstf -   oklaxstfprod
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : ERP_SOAP_USER
+       QDEPLOY VALUE  : oklaxstfprod
+       DESC           : 
+       ENCRYPT        : SHg5clEzR0t3R1ZxWklRTTBCeXlpbnYzWmVxL21JRmp0a0tEb1o5OWd2Yz0tLVpzTm5qRnNiMmZMVWh6bzRVcmI5UXc9PQ==--e77f9a205a5d65262eb52212c4acc052a40fa79a
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','ERP_SOAP_USER','SHg5clEzR0t3R1ZxWklRTTBCeXlpbnYzWmVxL21JRmp0a0tEb1o5OWd2Yz0tLVpzTm5qRnNiMmZMVWh6bzRVcmI5UXc9PQ==--e77f9a205a5d65262eb52212c4acc052a40fa79a',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : ERP_SOAP_PASS
+DEPLOYER INT  VALUE: OKL42010
+DEPLOYER PROD VALUE: aj22%K&L
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : ERP_SOAP_PASS
+       QDEPLOY VALUE  : OKL42010
+       DESC           : 
+       ENCRYPT        : UXllVHRCMWRvY3ZNNVZQUHFMT3pvU01Nc2o1a3c4S1FjOUQ1ZHJxblp1Zz0tLVRucUh0U2tTZkZNYmJ6dWhxcjFPSWc9PQ==--23ba06b7702fca9baea283150baa7bb8eb2349d8
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('ERP_SOAP_PASS',  'UXllVHRCMWRvY3ZNNVZQUHFMT3pvU01Nc2o1a3c4S1FjOUQ1ZHJxblp1Zz0tLVRucUh0U2tTZkZNYmJ6dWhxcjFPSWc9PQ==--23ba06b7702fca9baea283150baa7bb8eb2349d8', NOW(), NOW(), '')
+OKL42010 -   aj22%K&L
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : ERP_SOAP_PASS
+       QDEPLOY VALUE  : aj22%K&L
+       DESC           : 
+       ENCRYPT        : alFLTjlvUkQ0YWE2RjF6NkpQY211bUtsMHhWcVkzSGMxak5sM25DRStTTT0tLXYxdzFnZGVoTDMwQ3lqQVBSRCtUWFE9PQ==--2c4de0b7bfe967fafd73befce501c17b86c63202
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','ERP_SOAP_PASS','alFLTjlvUkQ0YWE2RjF6NkpQY211bUtsMHhWcVkzSGMxak5sM25DRStTTT0tLXYxdzFnZGVoTDMwQ3lqQVBSRCtUWFE9PQ==--2c4de0b7bfe967fafd73befce501c17b86c63202',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : ERP_HOST
+DEPLOYER INT  VALUE: oklsqldevn.coloservices.net
+DEPLOYER PROD VALUE: haxvsaif01.coloservices.net
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : ERP_HOST
+       QDEPLOY VALUE  : oklsqldevn.coloservices.net
+       DESC           : 
+       ENCRYPT        : ZTdVSXZRTnhGK2VBVXlRU25tNU9KejhMNXVZcGZiTU1iUlp3VGVha01zVnR5cDlCZDVPT2xqMUxucW1CNGMxeS0tcEpLeEZySGp1ZUNRWGlieW1RTWs5Zz09--a3396bc0059721fd6c0135e5ad1bbd21f6673f7e
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('ERP_HOST',  'ZTdVSXZRTnhGK2VBVXlRU25tNU9KejhMNXVZcGZiTU1iUlp3VGVha01zVnR5cDlCZDVPT2xqMUxucW1CNGMxeS0tcEpLeEZySGp1ZUNRWGlieW1RTWs5Zz09--a3396bc0059721fd6c0135e5ad1bbd21f6673f7e', NOW(), NOW(), '')
+oklsqldevn.coloservices.net -   haxvsaif01.coloservices.net
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : ERP_HOST
+       QDEPLOY VALUE  : haxvsaif01.coloservices.net
+       DESC           : 
+       ENCRYPT        : WFA2YTVTRGg3V1FlVFdicGJvcW05VlZyN3RRelNtMnNnektRNkRkdGhqRTAwdTI4TFRPb3NzTUVjT1FEMko1cC0tMGVROGtLRWJCUHJ0WjZoUjhra25Zdz09--e042bd93c8ed39265ae97faa0a03536e602559c3
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','ERP_HOST','WFA2YTVTRGg3V1FlVFdicGJvcW05VlZyN3RRelNtMnNnektRNkRkdGhqRTAwdTI4TFRPb3NzTUVjT1FEMko1cC0tMGVROGtLRWJCUHJ0WjZoUjhra25Zdz09--e042bd93c8ed39265ae97faa0a03536e602559c3',NOW(),NOW(),'')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_MEM_SIZE_DATA
+DEPLOYER INT  VALUE: 256
+DEPLOYER PROD VALUE: 256
+QDEPLOY VALUE:  128
+256 - 128
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_MEM_SIZE_DATA
+       QDEPLOY VALUE  : 256
+       DESC           : PP memcached data size
+       ENCRYPT        : QlhzVnowTzdhL0Zvd09oNWRjcnFRdz09LS10dXVRRVRYbnRBMlFrTjhZMlA5TFRnPT0=--1b016d7a4cf370320c2afe37d7837102f38c7855
+INSERT INTO tokens values(NULL,'Service','13','MEMCACHED_MEM_SIZE_DATA','QlhzVnowTzdhL0Zvd09oNWRjcnFRdz09LS10dXVRRVRYbnRBMlFrTjhZMlA5TFRnPT0=--1b016d7a4cf370320c2afe37d7837102f38c7855',NOW(),NOW(),'PP memcached data size')
+256 - 256
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : MEMCACHED_PORT_DATA
+DEPLOYER INT  VALUE: __ENV_ID__111
+DEPLOYER PROD VALUE: __ENV_ID__111
+QDEPLOY VALUE:  __ENV_ID__811
+__ENV_ID__111 - __ENV_ID__811
+CREATE SERVICE LEVEL TOKEN
+       QDEPLOY KEY    : MEMCACHED_PORT_DATA
+       QDEPLOY VALUE  : __ENV_ID__111
+       DESC           : PP memcached data port
+       ENCRYPT        : eXZzRWM3dWFscUZFaGRxTkJHcWVkOEVKVG1HRVZLSGVQWVRHVHpZUHJhdz0tLTBUcHV4REF6MVp2NnluU0pseXRSTUE9PQ==--10483aa901ee8f42fbe6329276b68d454066586c
+INSERT INTO tokens values(NULL,'Service','13','MEMCACHED_PORT_DATA','eXZzRWM3dWFscUZFaGRxTkJHcWVkOEVKVG1HRVZLSGVQWVRHVHpZUHJhdz0tLTBUcHV4REF6MVp2NnluU0pseXRSTUE9PQ==--10483aa901ee8f42fbe6329276b68d454066586c',NOW(),NOW(),'PP memcached data port')
+__ENV_ID__111 - __ENV_ID__111
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : ZEND_ROOT
+DEPLOYER INT  VALUE: /okl/ab_test/__ENV_NAME__
+DEPLOYER PROD VALUE: /okl/ab_test/__ENV_NAME__
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : ZEND_ROOT
+       QDEPLOY VALUE  : /okl/ab_test/__ENV_NAME__
+       DESC           : 
+       ENCRYPT        : UzV3TGpvTG5SVWdGcU9KNUVJZVgwcFd4RlUwVUhSRWRqY1BPaitzTUtnQzBQSDFZZFBGc0JBeVo5ZHlDK1RPMy0tMzBibUJsanFHQjNOcXVVYnNPWnVuZz09--f41d9203c35e49177237e0b5851e64db5c9af08d
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('ZEND_ROOT',  'UzV3TGpvTG5SVWdGcU9KNUVJZVgwcFd4RlUwVUhSRWRqY1BPaitzTUtnQzBQSDFZZFBGc0JBeVo5ZHlDK1RPMy0tMzBibUJsanFHQjNOcXVVYnNPWnVuZz09--f41d9203c35e49177237e0b5851e64db5c9af08d', NOW(), NOW(), '')
+/okl/ab_test/__ENV_NAME__ -   /okl/ab_test/__ENV_NAME__
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : CART_DB_NAME
+DEPLOYER INT  VALUE: king_cart
+DEPLOYER PROD VALUE: king_cart
+QDEPLOY VALUE:  king_cart
+king_cart - king_cart
+king_cart - king_cart
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_DISTRIBUTED
+DEPLOYER INT  VALUE: false
+DEPLOYER PROD VALUE: false
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_DISTRIBUTED
+       QDEPLOY VALUE  : false
+       DESC           : REDIS CLIENT: Is redis distributed (true/false)
+       ENCRYPT        : QWg3dkk0WS9uV0JuVFV5NE1CZllTQT09LS1VRjFOdDhEM0dDV0RUcXU0WURCa1l3PT0=--7fb0d542781bca315e9a4bbec7728cf60f5bef0e
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('REDIS_DISTRIBUTED',  'QWg3dkk0WS9uV0JuVFV5NE1CZllTQT09LS1VRjFOdDhEM0dDV0RUcXU0WURCa1l3PT0=--7fb0d542781bca315e9a4bbec7728cf60f5bef0e', NOW(), NOW(), 'REDIS CLIENT: Is redis distributed (true/false)')
+false -   false
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : REDIS_URLS
+DEPLOYER INT  VALUE: redis://localhost:__REDIS_PORT__
+DEPLOYER PROD VALUE: redis://localhost:__REDIS_PORT__
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : REDIS_URLS
+       QDEPLOY VALUE  : redis://localhost:__REDIS_PORT__
+       DESC           : REDIS CLIENT: The redis URL
+       ENCRYPT        : L3g1MXk3TE5qL2lVRWxNR08waHN3MHA2eUZDT29nbnBnTEF3blVQL2RiTVZpZU1nSnh1VHNhWmlyVkRoY1hWTi0tdnYvWVhrclFWOGR1UzJMSkJGMEsvdz09--591c6dfae6738dff05cfa6676513afab141257d8
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('REDIS_URLS',  'L3g1MXk3TE5qL2lVRWxNR08waHN3MHA2eUZDT29nbnBnTEF3blVQL2RiTVZpZU1nSnh1VHNhWmlyVkRoY1hWTi0tdnYvWVhrclFWOGR1UzJMSkJGMEsvdz09--591c6dfae6738dff05cfa6676513afab141257d8', NOW(), NOW(), 'REDIS CLIENT: The redis URL')
+redis://localhost:__REDIS_PORT__ -   redis://localhost:__REDIS_PORT__
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : AB_TEST_HOSTNAME
+DEPLOYER INT  VALUE: ab_test-__ENV_NAME__.newokl.com
+DEPLOYER PROD VALUE: localhost
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : AB_TEST_HOSTNAME
+       QDEPLOY VALUE  : ab_test-__ENV_NAME__.newokl.com
+       DESC           : apache conf - ServerName
+       ENCRYPT        : Q3hkZEQ2TVNad1ZmZUZNd3ppWGRDTzQ2SC9CZG9nK2tZRnN5NXpDZHZHeHgzZmJLWUhlazJ3ZFdRK1RCQ3ZUeS0tc3RtalVJVE1icUxyZ0M5a0h0THNrQT09--b8db4b16e7328861f111c4bcf57ef9623d8056e7
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('AB_TEST_HOSTNAME',  'Q3hkZEQ2TVNad1ZmZUZNd3ppWGRDTzQ2SC9CZG9nK2tZRnN5NXpDZHZHeHgzZmJLWUhlazJ3ZFdRK1RCQ3ZUeS0tc3RtalVJVE1icUxyZ0M5a0h0THNrQT09--b8db4b16e7328861f111c4bcf57ef9623d8056e7', NOW(), NOW(), 'apache conf - ServerName')
+ab_test-__ENV_NAME__.newokl.com -   localhost
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : AB_TEST_HOSTNAME
+       QDEPLOY VALUE  : localhost
+       DESC           : apache conf - ServerName
+       ENCRYPT        : ODJ1dkFubGpBcjFhZm9sVzFaSTVCZVdHSFlwSlVQSjhFNmNUSmFnLzhBRT0tLVFJc09WcTJCTGpGeElVaEh4UHMvMWc9PQ==--470fd76ad6ce61d23b5a4153b288b8ed18a77825
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','AB_TEST_HOSTNAME','ODJ1dkFubGpBcjFhZm9sVzFaSTVCZVdHSFlwSlVQSjhFNmNUSmFnLzhBRT0tLVFJc09WcTJCTGpGeElVaEh4UHMvMWc9PQ==--470fd76ad6ce61d23b5a4153b288b8ed18a77825',NOW(),NOW(),'apache conf - ServerName')
+----------------------------------------------------------
+AB_TEST DEPLOYER KEY       : EXPERIMENT_FILE_PATH
+DEPLOYER INT  VALUE: /home/share/okl/abtest/__ENV_NAME__
+DEPLOYER PROD VALUE: /home/share/okl/abtest/experiment
+CREATE GLOBAL LEVEL TOKEN
+       QDEPLOY KEY    : EXPERIMENT_FILE_PATH
+       QDEPLOY VALUE  : /home/share/okl/abtest/__ENV_NAME__
+       DESC           : 
+       ENCRYPT        : R0EvM0UralprVGE0OHp2a1UramZzYTlVQjZGN3RGd2x1cUkya1FqeVpIWEVWVzZyRnBxb0N6b1dWYzgwY3RRTC0tQUM2V2wxS3lLcHFLaGthMVAyUzVZUT09--a443c34a0f4fb4f2a624cf02b8afeea17587bb8f
+INSERT INTO tokens (`name`  `encrypted_value`, `created_at`m `updated_at`, `description`) values ('EXPERIMENT_FILE_PATH',  'R0EvM0UralprVGE0OHp2a1UramZzYTlVQjZGN3RGd2x1cUkya1FqeVpIWEVWVzZyRnBxb0N6b1dWYzgwY3RRTC0tQUM2V2wxS3lLcHFLaGthMVAyUzVZUT09--a443c34a0f4fb4f2a624cf02b8afeea17587bb8f', NOW(), NOW(), '')
+/home/share/okl/abtest/__ENV_NAME__ -   /home/share/okl/abtest/experiment
+CREATE PROD ENV LEVEL TOKEN
+       QDEPLOY KEY    : EXPERIMENT_FILE_PATH
+       QDEPLOY VALUE  : /home/share/okl/abtest/experiment
+       DESC           : 
+       ENCRYPT        : eWFlSlp4azRJQ2VFTEFrN2FJNDFQaXozRzFyVXVTV2NBK1p0NzZCMHdCbFRIVjZBSnFLR1o4bVdFcWdLTTJYci0tYzFGc1d6V3htU2ZSZ3FGODNHMmEwQT09--b27e5e5bab2955e07b70c86b7114cbc49f62e0c7
+INSERT INTO tokens values(NULL,'ServiceToEnvironment','100','EXPERIMENT_FILE_PATH','eWFlSlp4azRJQ2VFTEFrN2FJNDFQaXozRzFyVXVTV2NBK1p0NzZCMHdCbFRIVjZBSnFLR1o4bVdFcWdLTTJYci0tYzFGc1d6V3htU2ZSZ3FGODNHMmEwQT09--b27e5e5bab2955e07b70c86b7114cbc49f62e0c7',NOW(),NOW(),'')
+----------------------------------------------------------

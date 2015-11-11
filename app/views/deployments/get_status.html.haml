@@ -1,0 +1,32 @@
+- if params[:env_sel].nil?
+  - params[:env_sel] = ["qe01"]
+%h1
+
+= render 'form'
+
+%table.table.table-striped.table-condensed
+  %colgroup
+    .col.span1
+    .col.span1
+  %caption
+    %strong
+      = @environment.name
+  %thead
+    %th Project
+    %th Release
+    %th User
+    %th Deploy Date (PST)
+    %th Logs
+    - @latest.sort.each do |p,d|
+      %tr
+        %td
+          = p
+        %td
+          = d.name.gsub(/\.zip$/,'')
+        %td
+          = d.username
+        %td
+          = d.started_at.in_time_zone("Pacific Time (US & Canada)")
+        %td
+          - if d.log_path
+            = link_to "View logs", logs_deployment_path(d.id)

@@ -1,0 +1,40 @@
+= render 'projects/header'
+.pull-right
+  = link_to new_project_service_path(@project), class: 'btn', id: 'new-service-link' do
+    %i.icon-plus-sign
+    Service
+%h2.muted
+  Services
+%table.table.table-hover.table-striped
+  %tr
+    %th Name
+    %th Code
+    %th Environments
+    %th
+
+  - @services.each do |service|
+    %tr
+      %td
+        = link_to service.name, project_service_path(@project, service)
+      %td
+        %strong= service.code
+      %td
+        = service.environments.order("name asc").pluck(:name).join(", ")
+      %td
+        = link_to project_service_path(@project, service),
+        data: {toggle: 'tooltip', title: "Add/Delete Environment"},
+        class: 'btn btn-small' do
+          %i.icon-adjust
+          -#%i.plus-minus-image2.jpeg
+          -#%i.icon-plus-sign
+          -#%i.icon-minus-sign
+
+        = link_to edit_project_service_path(@project, service),
+        data: {toggle: 'tooltip', title: "Edit Service"},
+        class: 'btn btn-small' do
+          %i.icon-edit
+        - if @auth
+          = link_to project_service_path(@project, service), :method => :delete,
+          :data => { toggle: 'tooltip', title: "Delete Service:  #{service.name}", :confirm => 'Are you sure?' },
+           class: 'btn btn-small btn-danger' do
+            %i.icon-trash

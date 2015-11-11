@@ -1,0 +1,26 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.projects{
+  
+  #projectList li{
+    border-bottom: 1px solid #f1f1f1;
+
+  }
+  #projectList li ul.details li{
+    border-bottom: none;
+
+  }
+
+  .table tr {
+    &:hover {
+      //  color: #53A95E;
+      //    background-color: #F8FBEF;
+      font-weight: bold;
+      font-style: italic;
+      background-color: #A9D0F5;
+
+    }
+  }
+}

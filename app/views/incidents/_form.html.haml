@@ -1,0 +1,11 @@
+= simple_form_for(@incident, :html => {:class => "form-horizontal"}) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :start_date
+    = f.input :title
+    = f.input :content, input_html: {class: "span12", rows: 10}
+    = f.input :tag
+
+  .form-actions
+    = f.button :submit

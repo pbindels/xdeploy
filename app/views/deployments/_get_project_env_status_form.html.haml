@@ -1,0 +1,16 @@
+- params[:project_sel] = Project.where("name = ?", "Host Manager").first if params[:project_sel].nil?
+- project_id = Project.where("name = ?", params[:project_sel].name).first.id
+
+= form_tag("/deployments/get_project_env_status", :method => "get") do
+  = label_tag :service_name, ""
+  = select_tag(:service, options_for_select(Service.all.map{|c| c.name}.sort),
+    {:id => "select",:prompt => "Select A Service"})
+  .form-actions
+    = submit_tag("See Service Deployments", :class => "btn-primary")
+
+-#= simple_form_for('project_env_status',:url => url_for(:action => 'get_project_env_status', :controller => 'deployments', :method => 'get')) do |f|
+-#  = f.error_notification
+-#  = f.input :project, :label => false, :collection => Project.all.sort{|a,b| a.name <=> b.name },
+-#    :selected => project_id, :blank => false
+-#  .form-actions
+-#    = f.button :submit, "See Project Deployments", :class => "btn-primary"

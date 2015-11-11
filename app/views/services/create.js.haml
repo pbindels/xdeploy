@@ -1,0 +1,5 @@
+- if @service.valid?
+  != "$('#services table').replaceWith('#{j render 'projects/services'}');"
+  != "$('#service-modal').modal('toggle');"
+- else
+  != "$('#service-modal form').replaceWith('#{j render 'form'}');"

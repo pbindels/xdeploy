@@ -1,0 +1,3 @@
+- Rails.logger.info "IN DBREFRESH.JS.HAML"
+- template_html = render :file => 'deployments/dbrefresh.html', layout: false
+!= "$('#deploymentContent').replaceWith('#{j template_html }');"

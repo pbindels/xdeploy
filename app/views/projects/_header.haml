@@ -1,0 +1,12 @@
+%h1
+  = @project.name
+  /-
+  %small= @project.code
+%p
+  .muted
+    = @project.description
+    %br
+    %br
+    Notification recipients:
+    = @project.recipients
+= render_navigation context: :project, :renderer => :bootstrap

@@ -1,0 +1,16 @@
+=simple_form_for(@token, html: {class: 'form-horizontal'}, remote: true) do |f|
+  = hidden_field_tag "token[tokenable_type]", @token.tokenable_type
+  = hidden_field_tag "token[tokenable_id]", @token.tokenable_id
+  = hidden_field_tag :project, params[:project]
+  = hidden_field_tag :service, params[:service]
+  = hidden_field_tag :sub_project, params[:sub_project]
+  = hidden_field_tag :view, params[:view]
+  = hidden_field_tag :env_sel, params[:env_sel]
+  .form-inputs
+    - if params["token_name"].nil?
+      = f.input :name
+    - else
+      = f.input :name, :input_html => { :value => params["token_name"] }
+    = f.input :value
+  .form-actions
+    = f.button :submit

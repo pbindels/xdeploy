@@ -1,0 +1,17 @@
+// Place all the styles related to the environments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.environments {
+  .table tr {
+    &:hover {
+      //  color: #53A95E;
+      //    background-color: #F8FBEF;
+      background-color:    #A9D0F5;
+      font-weight: bold;
+      font-style: italic;
+      background-color: #ff0000;
+
+    }
+  }
+}

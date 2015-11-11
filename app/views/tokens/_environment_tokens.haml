@@ -1,0 +1,12 @@
+%ul
+  - Environment.all.each do |env|
+    %li
+      %a.hideable{:href => "#", "data-toggle" => 'tooltip', "data-title" => "#{env.tokens.count} tokens", "data-placement" => 'right'}
+        %i.icon-leaf
+        = env.name
+      = link_to new_token_path('token[tokenable_type]' => 'Environment', 'token[tokenable_id]' => env.id), class: 'btn btn-mini', remote: true do
+        %i.icon-plus-sign
+      %ul
+        - env.tokens.each do |token|
+          %li
+            = render partial: 'token_leaf', locals: {token: token}

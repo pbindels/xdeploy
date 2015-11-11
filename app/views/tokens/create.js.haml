@@ -1,0 +1,5 @@
+- if @token.valid?
+  != "$('#new-token-modal').modal('toggle');"
+  != "window.location = '#{tokens_path}';"
+- else
+  != "$('#new-token-modal form').replaceWith('#{j render 'tokenable_form'}');"

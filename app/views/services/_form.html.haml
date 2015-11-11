@@ -1,0 +1,9 @@
+= simple_form_for([@project, @service], :html => {:class => 'form-horizontal'}) do |f|
+  = f.error_notification
+  = f.input :name, hint: "Name of your service e.g. Nexus Reloaded"
+  = f.input :code, hint: "e.g. nexus_reloaded"
+  = f.input :description, as: :text, input_html: { class: "span6" }, hint: "Short description"
+
+  .form-actions
+    = f.button :submit, :class => "btn-primary"
+    = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"

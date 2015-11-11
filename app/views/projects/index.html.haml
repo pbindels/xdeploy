@@ -1,0 +1,102 @@
+.span12
+  .pull-right
+    = link_to new_project_path, :class => "btn btn-success" do
+      %i.icon-white.icon-plus-sign
+      New Project
+  %h1 Projects
+
+  %table.table.table-hover.table-striped.table-condensed
+    %thead
+      %tr
+        %th Project
+        %th Services
+        %th Deployments
+    %tbody
+      -# @environments.sort{|a,b| a.name <=> b.name}.each do |environment|
+      - @projects.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |project|
+        %tr
+          %td
+            %i.icon-folder-close.text-warning
+            = link_to project.name, project, data: {toggle: 'tooltip', title: project.description }
+            -#= link_to project.name, project_path(environment)
+            -#\-
+            %small.muted= project.code
+            = link_to edit_project_path(project)  do
+              %i.icon-edit
+          %td
+            %i.icon-cogs
+            = project.services.count
+            = link_to "Services", project_services_path(project)
+          %td
+            %i.icon-cloud
+            = project.deployments.count
+            = link_to "Deployments", project_deployments_path(project)
+
+
+-#.span12
+-#  .page-header
+-#    .pull-right
+-#      = link_to new_project_path, :class => 'btn' do
+-#        %icon.icon-plus-sign.icon-white
+-#        New Project
+-#    %h1 Projects
+-#
+-#  %ul#projectList.unstyled
+-#    - @projects.sort{|a,b| a.name.downcase <=> b.name.downcase}.each do |project|
+-#      %li
+-#        -#.pull-right
+-#          #deploymentGraph
+-#        -#%h3
+-#        %i.icon-folder-close.text-warning
+-#        = link_to project.name, project, data: {toggle: 'tooltip', title: project.description }
+-#        &nbsp
+-#        %small.muted= project.code
+-#        = link_to edit_project_path(project) do
+-#          &nbsp
+-#          %i.icon-edit
+-#        .pull-right
+-#          %ul.inline.muted.details
+-#            %li
+-#              %small
+-#                %i.icon-cogs
+-#                = project.services.count
+-#                = link_to "Services", project_services_path(project)
+-#            %li
+-#              %small
+-#                %i.icon-cloud
+-#                = project.deployments.count
+-#                = link_to "Deployments", project_deployments_path(project)
+-#            -#%li
+-#              %small
+-#                %i.icon-globe
+-#                = project.environments.count
+-#                = link_to "Environments", project_environments_path(project)
+-#        .clearfix
+-content_for(:script) do
+  :javascript
+    var graph = new Rickshaw.Graph( {
+        element: document.querySelector("#deploymentGraph"), 
+        width: 400, 
+        height: 40,
+        renderer: 'bar',
+        series: [{
+            color: 'lightblue',
+            data: [ 
+                { x: 0, y: 40 },
+                { x: 1, y: 49 },
+                { x: 2, y: 38 },
+                { x: 3, y: 30 },
+                { x: 4, y: 32 },
+                { x: 5, y: 40 },
+                { x: 6, y: 49 },
+                { x: 7, y: 38 },
+                { x: 8, y: 30 },
+                { x: 9, y: 32 },
+                { x: 10, y: 40 },
+                { x: 11, y: 49 },
+                { x: 12, y: 38 },
+                { x: 13, y: 30 },
+                { x: 14, y: 32 } ]
+        }]
+    });
+    graph.render();

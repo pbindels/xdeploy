@@ -1,0 +1,6 @@
+#new-token-modal.modal
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3 New Token
+  .modal-body
+    = render 'tokenable_form'

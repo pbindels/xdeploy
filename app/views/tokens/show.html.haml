@@ -1,0 +1,47 @@
+.row-fluid
+  .span6
+    .page-header
+      %h3 
+        Token
+        = link_to edit_token_path(@token), class: 'btn btn-small' do
+          %i.icon-cog
+    .well.well-small
+      %dl.dl-horizontal
+        - if @token.tokenable_id && @token.tokenable_type
+          %dt 
+            Belongs To
+            
+          %dd
+            = @token.tokenable.class
+            \-
+            = @token.tokenable.code
+        %dt Name:
+        %dd= @token.name 
+        %dt Value:
+        %dd= @token.value
+
+  .span6
+    .page-header
+      %h3
+        %i.icon-time
+        History
+        %small.muted Old values
+
+    %ul.unstyled
+      - @token.versions.each do |version|
+        %li
+          %small.muted
+            .pull-right
+              =User.find(version.whodunnit).username
+              %i.icon-time
+              = version.created_at
+            -if version.event == 'update'
+              %span
+                %strong=version.reify.name
+                \-
+                =version.reify.value
+            - else
+              %span
+                %strong=@token.name
+                \-
+                =@token.value

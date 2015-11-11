@@ -1,0 +1,18 @@
+- logfile = params[:log_file]
+- logfile.chop!
+= link_to "Back To DB Refresh", dbrefresh_path
+
+%h3
+  = logfile
+%table
+  - File.open("#{logfile}").each_line do |line|
+    %tr
+      %td
+        - if line =~ /^(service|env|script|user)/
+          %b
+            = line
+        - else
+          = line
+
+%p
+= link_to "Back To DB Refresh", dbrefresh_path

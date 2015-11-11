@@ -1,0 +1,15 @@
+%header.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      - if @qdeploy_host =~ /OKL/i
+        =link_to "========================= qdeploy Production ===========================", main_app.root_path, {style: 'color:#F91111', class: 'brand'}
+        %ul.nav.pull-right
+          %li.active= link_to "Logged in as #{current_user.username}", "/", {style: 'color:#F91111'}
+      - else
+        =link_to "qdeploy", main_app.root_path, {class: 'brand'}
+        %ul.nav.pull-right
+          %li.active= link_to "Logged in as #{current_user.username}", "/"
